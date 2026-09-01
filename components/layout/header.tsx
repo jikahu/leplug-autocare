@@ -32,7 +32,10 @@ export function Header() {
           isScrolled ? "h-14" : "h-20"
         }`}
       >
-        <Link href="/" className="shrink-0 font-heading text-xl font-black">
+        <Link
+          href="/"
+          className="shrink-0 rounded-sm font-heading text-xl font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+        >
           LE PLUG
         </Link>
 
@@ -48,7 +51,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden max-w-sm flex-1 items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 md:flex">
+        <div className="hidden max-w-sm flex-1 items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 focus-within:ring-2 focus-within:ring-murram md:flex">
           <Search className="size-4 shrink-0 text-savanna/70" aria-hidden="true" />
           <input
             type="search"
@@ -93,7 +96,7 @@ export function Header() {
 
       {mobileSearchOpen && (
         <div className="border-t border-steel px-4 py-3 md:hidden">
-          <div className="flex items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5">
+          <div className="flex items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 focus-within:ring-2 focus-within:ring-murram">
             <Search className="size-4 shrink-0 text-savanna/70" aria-hidden="true" />
             <input
               type="search"

@@ -30,7 +30,7 @@ export function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="w-full border-steel bg-tarmac text-savanna sm:max-w-full"
+        className="border-steel bg-tarmac text-savanna data-[side=right]:w-full data-[side=right]:sm:max-w-full"
       >
         <SheetHeader>
           <SheetTitle className="font-heading text-savanna">
