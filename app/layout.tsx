@@ -21,7 +21,8 @@ const bigShouldersStencil = Big_Shoulders_Stencil({
 
 export const metadata: Metadata = {
   title: "LePlug Autocare",
-  description: "Nairobi's plug for premium car care — parts, accessories, and detailing, done right.",
+  description:
+    "Nairobi's plug for premium car care — parts, accessories, and detailing, done right.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
