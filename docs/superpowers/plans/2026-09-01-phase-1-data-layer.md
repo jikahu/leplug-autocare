@@ -16,13 +16,13 @@
 - Modify: `package.json`
 - Create: `vitest.config.ts`
 
-- [ ] **Step 1: Install Vitest**
+- [x] **Step 1: Install Vitest**
 
 ```bash
 npm install -D vitest
 ```
 
-- [ ] **Step 2: Add a minimal Vitest config**
+- [x] **Step 2: Add a minimal Vitest config**
 
 Create `vitest.config.ts`:
 
@@ -42,7 +42,7 @@ export default defineConfig({
 });
 ```
 
-- [ ] **Step 3: Add a `test` script**
+- [x] **Step 3: Add a `test` script**
 
 In `package.json`, add to `"scripts"`:
 
@@ -50,13 +50,13 @@ In `package.json`, add to `"scripts"`:
 "test": "vitest run"
 ```
 
-- [ ] **Step 4: Verify Vitest runs with zero tests**
+- [x] **Step 4: Verify Vitest runs with zero tests**
 
 Run: `npm test`
 
 Expected: `No test files found` (or similar) — exits without crashing, confirming config is valid before any test files exist.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add package.json package-lock.json vitest.config.ts
@@ -71,7 +71,7 @@ git commit -m "chore: add Vitest for testing pure utility functions"
 - Create: `lib/types/product.ts`, `lib/types/category.ts`, `lib/types/review.ts`, `lib/types/user.ts`, `lib/types/cart.ts`, `lib/types/order.ts`
 - Modify: `lib/types/index.ts`
 
-- [ ] **Step 1: Create `lib/types/product.ts`**
+- [x] **Step 1: Create `lib/types/product.ts`**
 
 ```ts
 export type StockStatus = "in_stock" | "low_stock" | "out_of_stock";
@@ -97,7 +97,7 @@ export type Product = {
 };
 ```
 
-- [ ] **Step 2: Create `lib/types/category.ts`**
+- [x] **Step 2: Create `lib/types/category.ts`**
 
 ```ts
 export type Subcategory = {
@@ -116,7 +116,7 @@ export type Category = {
 };
 ```
 
-- [ ] **Step 3: Create `lib/types/review.ts`**
+- [x] **Step 3: Create `lib/types/review.ts`**
 
 ```ts
 export type Review = {
@@ -130,7 +130,7 @@ export type Review = {
 };
 ```
 
-- [ ] **Step 4: Create `lib/types/user.ts`**
+- [x] **Step 4: Create `lib/types/user.ts`**
 
 ```ts
 export type Address = {
@@ -150,7 +150,7 @@ export type User = {
 };
 ```
 
-- [ ] **Step 5: Create `lib/types/cart.ts`**
+- [x] **Step 5: Create `lib/types/cart.ts`**
 
 ```ts
 export type CartItem = {
@@ -159,7 +159,7 @@ export type CartItem = {
 };
 ```
 
-- [ ] **Step 6: Create `lib/types/order.ts`**
+- [x] **Step 6: Create `lib/types/order.ts`**
 
 ```ts
 import type { CartItem } from "./cart";
@@ -177,7 +177,7 @@ export type Order = {
 };
 ```
 
-- [ ] **Step 7: Re-export everything from the barrel**
+- [x] **Step 7: Re-export everything from the barrel**
 
 Replace `lib/types/index.ts` (currently just `export {};`):
 
@@ -190,13 +190,13 @@ export type { CartItem } from "./cart";
 export type { Order, OrderStatus } from "./order";
 ```
 
-- [ ] **Step 8: Verify it compiles**
+- [x] **Step 8: Verify it compiles**
 
 Run: `npx tsc --noEmit`
 
 Expected: no errors.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add lib/types
@@ -211,7 +211,7 @@ git commit -m "feat: add core data model types per CLAUDE.md section 7"
 - Create: `lib/utils/format-currency.ts`
 - Test: `lib/utils/format-currency.test.ts`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `lib/utils/format-currency.test.ts`:
 
@@ -238,13 +238,13 @@ describe("formatCurrency", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/utils/format-currency.test.ts`
 
 Expected: FAIL — `Cannot find module './format-currency'`.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 Create `lib/utils/format-currency.ts`:
 
@@ -255,13 +255,13 @@ export function formatCurrency(amount: number): string {
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run lib/utils/format-currency.test.ts`
 
 Expected: PASS (4/4).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/utils/format-currency.ts lib/utils/format-currency.test.ts
@@ -278,7 +278,7 @@ git commit -m "feat: add formatCurrency utility"
 
 Implements CLAUDE.md §10: Nairobi Metro = KSh 300, Outside Nairobi = KSh 600, free over KSh 5,000 subtotal.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `lib/utils/delivery-fee.test.ts`:
 
@@ -305,13 +305,13 @@ describe("deliveryFee", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/utils/delivery-fee.test.ts`
 
 Expected: FAIL — module not found.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 Create `lib/utils/delivery-fee.ts`:
 
@@ -331,13 +331,13 @@ export function deliveryFee(zone: Address["zone"], subtotal: number): number {
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run lib/utils/delivery-fee.test.ts`
 
 Expected: PASS (4/4).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/utils/delivery-fee.ts lib/utils/delivery-fee.test.ts
@@ -351,7 +351,7 @@ git commit -m "feat: add deliveryFee utility per CLAUDE.md section 10"
 **Files:**
 - Create: `lib/data/categories.ts`
 
-- [ ] **Step 1: Write the 6 top-level categories with subcategories**
+- [x] **Step 1: Write the 6 top-level categories with subcategories**
 
 Create `lib/data/categories.ts` (full content — all 6 categories from CLAUDE.md §6):
 
@@ -450,13 +450,13 @@ export function getCategoryBySlug(slug: string): Category | undefined {
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit`
 
 Expected: no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add lib/data/categories.ts
@@ -472,7 +472,7 @@ git commit -m "feat: add category mock data per CLAUDE.md section 6"
 
 Rather than hand-writing 50 product literals (unmaintainable and error-prone to type out by hand), this task builds the product list from small per-category templates expanded with a deterministic generator — still fully static data (no runtime randomness), just less repetition. 42 products total across the 6 categories.
 
-- [ ] **Step 1: Create `lib/data/products.ts`**
+- [x] **Step 1: Create `lib/data/products.ts`**
 
 ```ts
 import type { Product } from "@/lib/types";
@@ -585,7 +585,7 @@ export function getProductsByCategory(category: string): Product[] {
 export const ALL_VEHICLE_MAKES = VEHICLE_MAKES;
 ```
 
-- [ ] **Step 2: Verify the product count and compile**
+- [x] **Step 2: Verify the product count and compile**
 
 Run:
 
@@ -596,7 +596,7 @@ node -e "const {products}=require('./lib/data/products.ts')" 2>&1 || npx tsx -e 
 
 Expected: no TypeScript errors; product count logs as 36 (7+7+6+6+5+5 across the six categories — just below the 40-60 target, so Step 3 tops it up).
 
-- [ ] **Step 3: Add more seeds to reach 40-60 total**
+- [x] **Step 3: Add more seeds to reach 40-60 total**
 
 Add 6-10 more seeds distributed across categories with the lowest counts (`car-care-detailing`, `electronics-security`, `safety` each currently have 5-6) — for example, add these three to `car-care-detailing`:
 
@@ -621,11 +621,11 @@ and this one to `safety`:
 
 This brings the total to 42 products.
 
-- [ ] **Step 5: Verify final count and compile**
+- [x] **Step 5: Verify final count and compile**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add lib/data/products.ts
@@ -639,7 +639,7 @@ git commit -m "feat: add 42 mock products across all 6 categories"
 **Files:**
 - Create: `lib/data/reviews.ts`
 
-- [ ] **Step 1: Create reviews for a representative subset of products**
+- [x] **Step 1: Create reviews for a representative subset of products**
 
 Create `lib/data/reviews.ts` — not every product needs reviews (some products should legitimately show "no reviews yet" per the empty-state pattern), so this seeds reviews for roughly two-thirds of products, 1-4 reviews each:
 
@@ -693,11 +693,11 @@ export function getReviewsByProductId(productId: string): Review[] {
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add lib/data/reviews.ts
@@ -712,7 +712,7 @@ git commit -m "feat: add mock review data for two-thirds of products"
 - Create: `lib/utils/filter-products.ts`
 - Test: `lib/utils/filter-products.test.ts`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `lib/utils/filter-products.test.ts`:
 
@@ -754,11 +754,11 @@ describe("filterProducts", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/utils/filter-products.test.ts` — expect module-not-found failure.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 Create `lib/utils/filter-products.ts`:
 
@@ -787,11 +787,11 @@ export function filterProducts(products: Product[], filters: ProductFilters): Pr
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run lib/utils/filter-products.test.ts` — expect PASS (6/6).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/utils/filter-products.ts lib/utils/filter-products.test.ts
@@ -806,7 +806,7 @@ git commit -m "feat: add filterProducts utility"
 - Create: `lib/utils/sort-products.ts`
 - Test: `lib/utils/sort-products.test.ts`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `lib/utils/sort-products.test.ts`:
 
@@ -846,11 +846,11 @@ describe("sortProducts", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/utils/sort-products.test.ts` — expect module-not-found failure.
 
-- [ ] **Step 3: Write minimal implementation**
+- [x] **Step 3: Write minimal implementation**
 
 Create `lib/utils/sort-products.ts`:
 
@@ -886,11 +886,11 @@ export function sortProducts(products: Product[], sort: SortOption): Product[] {
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run lib/utils/sort-products.test.ts` — expect PASS (5/5).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/utils/sort-products.ts lib/utils/sort-products.test.ts
@@ -903,21 +903,21 @@ git commit -m "feat: add sortProducts utility"
 
 **Files:** none (verification only)
 
-- [ ] **Step 1: Run the full test suite**
+- [x] **Step 1: Run the full test suite**
 
 Run: `npm test`
 
 Expected: all test files pass (format-currency, delivery-fee, filter-products, sort-products — 19 tests total).
 
-- [ ] **Step 2: Run lint**
+- [x] **Step 2: Run lint**
 
 Run: `npm run lint` — expect no errors.
 
-- [ ] **Step 3: Run typecheck**
+- [x] **Step 3: Run typecheck**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 4: Verify product/category/review data is internally consistent**
+- [x] **Step 4: Verify product/category/review data is internally consistent**
 
 Run:
 
@@ -935,7 +935,7 @@ import('./lib/data/products.ts').then(async ({ products }) => {
 
 Expected: `product count: 42`, `orphaned category refs: 0`. If `tsx` isn't available, install it as a dev dependency first: `npm install -D tsx`.
 
-- [ ] **Step 5: Commit any fixes found**
+- [x] **Step 5: Commit any fixes found**
 
 ```bash
 git add -A
@@ -948,9 +948,15 @@ git commit -m "fix: resolve issues found in Phase 1 verification gate"
 
 ## Definition of done for Phase 1
 
-- [ ] All six type files exist and re-export cleanly from `lib/types/index.ts`
-- [ ] 42 products exist across all 6 categories, each with a valid `category` id
-- [ ] Reviews exist for roughly two-thirds of products
-- [ ] `formatCurrency`, `deliveryFee`, `filterProducts`, `sortProducts` are all implemented and unit-tested
-- [ ] `npm test`, `npm run lint`, and `npx tsc --noEmit` all pass clean
-- [ ] One commit per task above
+- [x] All six type files exist and re-export cleanly from `lib/types/index.ts`
+- [x] 42 products exist across all 6 categories, each with a valid `category` id
+- [x] Reviews exist for roughly two-thirds of products
+- [x] `formatCurrency`, `deliveryFee`, `filterProducts`, `sortProducts` are all implemented and unit-tested
+- [x] `npm test`, `npm run lint`, and `npx tsc --noEmit` all pass clean
+- [x] One commit per task above
+
+## Deviations from plan (discovered during execution)
+
+- Vitest is v4 in this project, not the older version assumed when drafting — `defineConfig`'s native (non-Vite-bundled) config loader flagged CommonJS/`__dirname` usage as deprecated. Fixed by naming the config `vitest.config.mts` (explicit ESM) and using `import.meta.dirname` instead of `path.resolve(__dirname, ".")`.
+- Corrected the product count math before executing Task 6: the seed data as written totals 36 base + 6 added = 42 products, not 46 as originally estimated in the plan draft — fixed throughout the plan text before writing any code, so no code changed as a result.
+- `node --experimental-strip-types` (Node 22's native TS loader) can't resolve extensionless relative imports (`./products`) the way Next.js/Vitest's bundler-style resolution does — it only worked for the `lib/data/reviews.ts` sanity check when run through Vitest instead of directly through Node.
