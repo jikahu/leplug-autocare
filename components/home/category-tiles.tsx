@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { categories } from "@/lib/data/categories";
-import { getCategoryIcon } from "@/lib/utils/category-icons";
+import { CategoryPlaceholderIcon } from "@/lib/utils/category-icons";
 
 export function CategoryTiles() {
   return (
@@ -11,7 +11,6 @@ export function CategoryTiles() {
         </h2>
         <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {categories.map((category) => {
-            const Icon = getCategoryIcon(category.id);
             return (
               <Link
                 key={category.id}
@@ -19,7 +18,7 @@ export function CategoryTiles() {
                 className="group flex flex-col gap-3 rounded-lg border border-steel/40 bg-tarmac/5 p-5 transition-colors hover:border-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               >
                 <span className="flex size-12 items-center justify-center rounded-full bg-linear-to-br from-chrome-start to-chrome-end">
-                  <Icon className="size-6 text-tarmac/70" aria-hidden="true" />
+                  <CategoryPlaceholderIcon category={category.id} className="size-6 text-tarmac/70" />
                 </span>
                 <span className="font-heading text-lg font-bold text-tarmac group-hover:text-murram">
                   {category.name}
