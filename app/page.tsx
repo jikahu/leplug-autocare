@@ -1,7 +1,26 @@
+import type { Metadata } from "next";
+import { HeroSection } from "@/components/home/hero-section";
+import { CategoryTiles } from "@/components/home/category-tiles";
+import { BestsellersRail } from "@/components/home/bestsellers-rail";
+import { VehicleMakeStrip } from "@/components/home/vehicle-make-strip";
+import { TrustSignals } from "@/components/home/trust-signals";
+import { NewsletterSignup } from "@/components/home/newsletter-signup";
+
+export const metadata: Metadata = {
+  title: "LePlug Autocare — Premium Car Care in Nairobi",
+  description:
+    "Nairobi's plug for premium car care — parts, accessories, and detailing, done right.",
+};
+
 export default function Home() {
   return (
-    <main className="flex flex-1 min-h-screen items-center justify-center bg-tarmac text-savanna">
-      <h1 className="font-heading text-4xl font-black">LE PLUG AUTOCARE</h1>
+    <main>
+      <HeroSection />
+      <CategoryTiles />
+      <BestsellersRail />
+      <VehicleMakeStrip />
+      <TrustSignals />
+      <NewsletterSignup />
     </main>
   );
 }
