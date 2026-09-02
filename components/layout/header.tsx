@@ -71,6 +71,7 @@ export function Header() {
           <input
             type="search"
             name="q"
+            required
             placeholder="Search parts, accessories..."
             className="w-full bg-transparent text-sm outline-none placeholder:text-savanna/50"
             aria-label="Search products"
@@ -121,6 +122,7 @@ export function Header() {
             <input
               type="search"
               name="q"
+              required
               placeholder="Search parts, accessories..."
               className="w-full bg-transparent text-sm outline-none placeholder:text-savanna/50"
               aria-label="Search products"
