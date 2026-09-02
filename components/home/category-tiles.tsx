@@ -16,7 +16,7 @@ export function CategoryTiles() {
               <Link
                 key={category.id}
                 href={`/shop/${category.slug}`}
-                className="group flex flex-col gap-3 rounded-lg border border-steel/40 bg-white/40 p-5 transition-colors hover:border-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                className="group flex flex-col gap-3 rounded-lg border border-steel/40 bg-savanna/40 p-5 transition-colors hover:border-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               >
                 <span className="flex size-12 items-center justify-center rounded-full bg-linear-to-br from-chrome-start to-chrome-end">
                   <Icon className="size-6 text-tarmac/70" aria-hidden="true" />
