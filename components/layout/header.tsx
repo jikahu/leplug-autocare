@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { Search, ShoppingCart, User } from "lucide-react";
 import { useCartItemCount } from "@/lib/store/cart";
 import { MobileNav } from "./mobile-nav";
@@ -16,6 +17,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const itemCount = useCartItemCount();
+  const router = useRouter();
 
   useEffect(() => {
     function handleScroll() {
@@ -24,6 +26,15 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  function handleSearchSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const query = new FormData(event.currentTarget).get("q");
+    if (typeof query === "string" && query.trim()) {
+      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+      setMobileSearchOpen(false);
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-steel bg-tarmac text-savanna">
@@ -51,15 +62,20 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden max-w-sm flex-1 items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 focus-within:ring-2 focus-within:ring-murram md:flex">
+        <form
+          onSubmit={handleSearchSubmit}
+          role="search"
+          className="hidden max-w-sm flex-1 items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 focus-within:ring-2 focus-within:ring-murram md:flex"
+        >
           <Search className="size-4 shrink-0 text-savanna/70" aria-hidden="true" />
           <input
             type="search"
+            name="q"
             placeholder="Search parts, accessories..."
             className="w-full bg-transparent text-sm outline-none placeholder:text-savanna/50"
             aria-label="Search products"
           />
-        </div>
+        </form>
 
         <div className="flex items-center gap-3 md:gap-4">
           <button
@@ -96,16 +112,21 @@ export function Header() {
 
       {mobileSearchOpen && (
         <div className="border-t border-steel px-4 py-3 md:hidden">
-          <div className="flex items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 focus-within:ring-2 focus-within:ring-murram">
+          <form
+            onSubmit={handleSearchSubmit}
+            role="search"
+            className="flex items-center gap-2 rounded-md border border-steel bg-savanna/5 px-3 py-1.5 focus-within:ring-2 focus-within:ring-murram"
+          >
             <Search className="size-4 shrink-0 text-savanna/70" aria-hidden="true" />
             <input
               type="search"
+              name="q"
               placeholder="Search parts, accessories..."
               className="w-full bg-transparent text-sm outline-none placeholder:text-savanna/50"
               aria-label="Search products"
               autoFocus
             />
-          </div>
+          </form>
         </div>
       )}
     </header>
