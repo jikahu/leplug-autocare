@@ -27,7 +27,7 @@ function MakeBadge({ make, logoSrc }: { make: string; logoSrc?: string }) {
           className="size-12 object-contain"
         />
       ) : (
-        <CarFront className="size-8 text-savanna/70" aria-hidden="true" />
+        <CarFront className="size-12 text-savanna/70" aria-hidden="true" />
       )}
       <span className="text-sm font-medium text-savanna">{make}</span>
     </Link>
