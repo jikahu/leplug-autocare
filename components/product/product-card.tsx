@@ -57,6 +57,7 @@ export function ProductCard({ product }: { product: Product }) {
         </button>
         <Link
           href={`/product/${product.slug}`}
+          aria-label={`View ${product.name}`}
           className="flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram focus-visible:ring-inset"
         >
           <CategoryIcon className="size-16 text-tarmac/30" aria-hidden="true" />
