@@ -2,6 +2,7 @@ import type { ShopFilterParams } from "./build-filter-url";
 
 export type RawSearchParams = Record<string, string | string[] | undefined>;
 
+// Must list every key in ShopFilterParams — any key missing here is silently dropped.
 const KEYS: (keyof ShopFilterParams)[] = [
   "q",
   "category",
