@@ -19,7 +19,7 @@ export function BestsellersRail() {
           {bestsellers.map((product, index) => (
             <div key={product.id} className="relative w-56 shrink-0 snap-start sm:w-64">
               <span
-                className="pointer-events-none absolute -left-1 -top-1 z-10 font-stencil text-3xl font-bold text-murram/25"
+                className="pointer-events-none absolute -bottom-1 -left-1 z-10 font-stencil text-3xl font-bold text-murram/25"
                 aria-hidden="true"
               >
                 {String(index + 1).padStart(2, "0")}
