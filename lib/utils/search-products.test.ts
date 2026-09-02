@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { searchProducts } from "./search-products";
 import type { Product } from "@/lib/types";
 
-const PRODUCTS: Product[] = [
+const sample: Product[] = [
   {
     id: "1",
     slug: "led-fog-light-kit",
@@ -46,27 +46,27 @@ const PRODUCTS: Product[] = [
 
 describe("searchProducts", () => {
   it("matches by product name, case-insensitive", () => {
-    expect(searchProducts(PRODUCTS, "fog light")).toEqual([PRODUCTS[0]]);
-    expect(searchProducts(PRODUCTS, "FOG LIGHT")).toEqual([PRODUCTS[0]]);
+    expect(searchProducts(sample, "fog light")).toEqual([sample[0]]);
+    expect(searchProducts(sample, "FOG LIGHT")).toEqual([sample[0]]);
   });
 
   it("matches by brand", () => {
-    expect(searchProducts(PRODUCTS, "shineworks")).toEqual([PRODUCTS[2]]);
+    expect(searchProducts(sample, "shineworks")).toEqual([sample[2]]);
   });
 
   it("matches by category id", () => {
-    expect(searchProducts(PRODUCTS, "performance")).toEqual([PRODUCTS[1]]);
+    expect(searchProducts(sample, "performance")).toEqual([sample[1]]);
   });
 
   it("returns an empty array for no matches", () => {
-    expect(searchProducts(PRODUCTS, "xyz-nonexistent")).toEqual([]);
+    expect(searchProducts(sample, "xyz-nonexistent")).toEqual([]);
   });
 
   it("returns an empty array for a blank query", () => {
-    expect(searchProducts(PRODUCTS, "   ")).toEqual([]);
+    expect(searchProducts(sample, "   ")).toEqual([]);
   });
 
   it("trims surrounding whitespace from the query", () => {
-    expect(searchProducts(PRODUCTS, "  shampoo  ")).toEqual([PRODUCTS[2]]);
+    expect(searchProducts(sample, "  shampoo  ")).toEqual([sample[2]]);
   });
 });
