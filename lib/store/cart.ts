@@ -46,6 +46,11 @@ export const useCartStore = create<CartState>()(
     {
       name: "leplug-cart",
       storage: createJSONStorage(() => localStorage),
+      // Rehydration is triggered manually (see components/layout/store-hydration.tsx)
+      // after the client mounts, so the first client render matches the
+      // server-rendered HTML (empty cart) instead of causing a hydration
+      // mismatch when localStorage already has saved items.
+      skipHydration: true,
     }
   )
 );

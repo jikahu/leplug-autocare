@@ -3,6 +3,7 @@ import { Archivo, Inter, Big_Shoulders_Stencil } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { StoreHydration } from "@/components/layout/store-hydration";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${archivo.variable} ${inter.variable} ${bigShouldersStencil.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
+        <StoreHydration />
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />

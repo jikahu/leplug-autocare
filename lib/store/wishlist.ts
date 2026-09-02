@@ -24,6 +24,11 @@ export const useWishlistStore = create<WishlistState>()(
     {
       name: "leplug-wishlist",
       storage: createJSONStorage(() => localStorage),
+      // Rehydration is triggered manually (see components/layout/store-hydration.tsx)
+      // after the client mounts, so the first client render matches the
+      // server-rendered HTML (nothing wishlisted) instead of causing a
+      // hydration mismatch when localStorage already has saved items.
+      skipHydration: true,
     }
   )
 );

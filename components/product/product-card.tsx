@@ -10,14 +10,13 @@ import { useCartStore } from "@/lib/store/cart";
 import { useWishlistStore } from "@/lib/store/wishlist";
 import { formatCurrency } from "@/lib/utils/format-currency";
 import { getStarCounts } from "@/lib/utils/star-rating";
-import { getCategoryIcon } from "@/lib/utils/category-icons";
+import { CategoryPlaceholderIcon } from "@/lib/utils/category-icons";
 
 export function ProductCard({ product }: { product: Product }) {
   const [justAdded, setJustAdded] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
   const isWishlisted = useWishlistStore((state) => state.isWishlisted(product.id));
   const toggleWishlist = useWishlistStore((state) => state.toggle);
-  const CategoryIcon = getCategoryIcon(product.category);
   const stars = product.rating ? getStarCounts(product.rating) : null;
   const isOutOfStock = product.stock === "out_of_stock";
 
@@ -60,7 +59,7 @@ export function ProductCard({ product }: { product: Product }) {
           aria-label={`View ${product.name}`}
           className="flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram focus-visible:ring-inset"
         >
-          <CategoryIcon className="size-16 text-tarmac/30" aria-hidden="true" />
+          <CategoryPlaceholderIcon category={product.category} className="size-16 text-tarmac/30" />
         </Link>
       </div>
 

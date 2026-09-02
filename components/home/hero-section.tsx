@@ -13,7 +13,7 @@ export function HeroSection() {
             Parts, accessories, and detailing for Nairobi&apos;s drivers — real fit, real quality,
             ordered online.
           </p>
-          <Button render={<Link href="/shop" />} size="lg">
+          <Button render={<Link href="/shop" />} nativeButton={false} size="lg">
             Shop Now
           </Button>
         </div>
