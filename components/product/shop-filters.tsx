@@ -30,7 +30,7 @@ function FilterPill({ label, href, active }: { label: string; href: string; acti
   return (
     <Link
       href={href}
-      aria-pressed={active}
+      aria-current={active ? "true" : undefined}
       className={`rounded-full border px-3 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram ${
         active
           ? "border-murram bg-murram text-savanna"
