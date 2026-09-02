@@ -9,6 +9,7 @@ export type ShopFilterParams = {
   sort?: string;
 };
 
+// Must list every key in ShopFilterParams — any key missing here is silently dropped from the URL.
 const PARAM_ORDER: (keyof ShopFilterParams)[] = [
   "q",
   "category",
