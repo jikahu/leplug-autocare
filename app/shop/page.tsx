@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description: "Browse every car part, accessory, and detailing product LePlug Autocare carries.",
 };
 
+// Must match the value strings in SortOption (lib/utils/sort-products.ts) and SORT_OPTIONS in components/product/sort-select.tsx.
 const SORT_OPTIONS = new Set<SortOption>(["price-asc", "price-desc", "newest", "bestselling", "rating"]);
 
 export default async function ShopPage({
