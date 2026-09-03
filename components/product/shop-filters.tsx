@@ -169,14 +169,10 @@ export function ShopFilters(props: ShopFiltersProps) {
       </aside>
       <div className="md:hidden">
         <Sheet>
-          <SheetTrigger
-            render={
-              <Button variant="outline" className="gap-2">
-                <SlidersHorizontal className="size-4" aria-hidden="true" />
-                Filters
-              </Button>
-            }
-          />
+          <SheetTrigger render={<Button variant="outline" className="gap-2" />}>
+            <SlidersHorizontal className="size-4" aria-hidden="true" />
+            Filters
+          </SheetTrigger>
           <SheetContent side="left" className="overflow-y-auto bg-savanna text-tarmac">
             <SheetHeader>
               <SheetTitle className="text-tarmac">Filters</SheetTitle>
