@@ -76,9 +76,11 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           />
 
           <div className="flex-1">
-            <div className="mb-4 flex justify-end">
-              <SortSelect basePath={basePath} current={current} />
-            </div>
+            {sorted.length > 0 && (
+              <div className="mb-4 flex justify-end">
+                <SortSelect basePath={basePath} current={current} />
+              </div>
+            )}
             <ProductGrid products={sorted} emptyState={{ variant: "filters", clearHref: basePath }} />
           </div>
         </div>

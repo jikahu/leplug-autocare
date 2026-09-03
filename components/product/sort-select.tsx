@@ -34,9 +34,13 @@ export function SortSelect({
           }
         </SelectValue>
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="border-steel bg-savanna text-tarmac">
         {SORT_OPTIONS.map((option) => (
-          <SelectItem key={option.value} value={option.value}>
+          <SelectItem
+            key={option.value}
+            value={option.value}
+            className="focus:bg-murram/10 focus:text-tarmac"
+          >
             {option.label}
           </SelectItem>
         ))}

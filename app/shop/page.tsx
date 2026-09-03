@@ -61,9 +61,11 @@ export default async function ShopPage({
           <ShopFilters basePath="/shop" current={current} brands={brands} />
 
           <div className="flex-1">
-            <div className="mb-4 flex justify-end">
-              <SortSelect basePath="/shop" current={current} />
-            </div>
+            {sorted.length > 0 && (
+              <div className="mb-4 flex justify-end">
+                <SortSelect basePath="/shop" current={current} />
+              </div>
+            )}
             <ProductGrid products={sorted} emptyState={{ variant: "filters", clearHref: "/shop" }} />
           </div>
         </div>
