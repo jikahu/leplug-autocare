@@ -2,6 +2,14 @@ import type { Product } from "@/lib/types";
 
 export type SortOption = "price-asc" | "price-desc" | "newest" | "bestselling" | "rating";
 
+export const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "price-asc", label: "Price: Low to High" },
+  { value: "price-desc", label: "Price: High to Low" },
+  { value: "newest", label: "Newest" },
+  { value: "bestselling", label: "Bestselling" },
+  { value: "rating", label: "Customer Rating" },
+];
+
 export function sortProducts(products: Product[], sort: SortOption): Product[] {
   const copy = [...products];
   switch (sort) {

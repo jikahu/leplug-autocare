@@ -8,11 +8,10 @@ import { ProductGrid } from "@/components/product/product-grid";
 import { getCategoryBySlug } from "@/lib/data/categories";
 import { getProductsByCategory } from "@/lib/data/products";
 import { filterProducts } from "@/lib/utils/filter-products";
-import { sortProducts, type SortOption } from "@/lib/utils/sort-products";
+import { sortProducts, SORT_OPTIONS, type SortOption } from "@/lib/utils/sort-products";
 import { parseShopSearchParams } from "@/lib/utils/parse-shop-search-params";
 
-// Must match the value strings in SortOption (lib/utils/sort-products.ts) and SORT_OPTIONS in components/product/sort-select.tsx.
-const SORT_OPTIONS = new Set<SortOption>(["price-asc", "price-desc", "newest", "bestselling", "rating"]);
+const VALID_SORT_VALUES = new Set<SortOption>(SORT_OPTIONS.map((option) => option.value));
 
 type CategoryPageProps = {
   params: Promise<{ category: string }>;
@@ -49,7 +48,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   });
 
   const sorted =
-    current.sort && SORT_OPTIONS.has(current.sort as SortOption)
+    current.sort && VALID_SORT_VALUES.has(current.sort as SortOption)
       ? sortProducts(filtered, current.sort as SortOption)
       : filtered;
 

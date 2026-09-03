@@ -3,14 +3,14 @@ import { ProductGrid } from "@/components/product/product-grid";
 import { SortSelect } from "@/components/product/sort-select";
 import { products } from "@/lib/data/products";
 import { searchProducts } from "@/lib/utils/search-products";
-import { sortProducts, type SortOption } from "@/lib/utils/sort-products";
+import { sortProducts, SORT_OPTIONS, type SortOption } from "@/lib/utils/sort-products";
 import { parseShopSearchParams } from "@/lib/utils/parse-shop-search-params";
 
-// Must match the value strings in SortOption (lib/utils/sort-products.ts) and SORT_OPTIONS in components/product/sort-select.tsx.
-const SORT_OPTIONS = new Set<SortOption>(["price-asc", "price-desc", "newest", "bestselling", "rating"]);
+const VALID_SORT_VALUES = new Set<SortOption>(SORT_OPTIONS.map((option) => option.value));
 
 export const metadata: Metadata = {
   title: "Search Results — LePlug Autocare",
+  description: "Search LePlug Autocare's full catalog of car parts, accessories, and detailing products.",
 };
 
 export default async function SearchPage({
@@ -24,7 +24,7 @@ export default async function SearchPage({
 
   const matched = query ? searchProducts(products, query) : [];
   const sorted =
-    current.sort && SORT_OPTIONS.has(current.sort as SortOption)
+    current.sort && VALID_SORT_VALUES.has(current.sort as SortOption)
       ? sortProducts(matched, current.sort as SortOption)
       : matched;
 

@@ -9,14 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { buildFilterHref, type ShopFilterParams } from "@/lib/utils/build-filter-url";
-
-const SORT_OPTIONS: { value: string; label: string }[] = [
-  { value: "price-asc", label: "Price: Low to High" },
-  { value: "price-desc", label: "Price: High to Low" },
-  { value: "newest", label: "Newest" },
-  { value: "bestselling", label: "Bestselling" },
-  { value: "rating", label: "Customer Rating" },
-];
+import { SORT_OPTIONS } from "@/lib/utils/sort-products";
 
 export function SortSelect({
   basePath,
