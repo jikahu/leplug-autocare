@@ -28,7 +28,11 @@ export function SortSelect({
       }}
     >
       <SelectTrigger className="w-full sm:w-56" aria-label="Sort products">
-        <SelectValue placeholder="Sort by" />
+        <SelectValue placeholder="Sort by">
+          {(value: string | null) =>
+            SORT_OPTIONS.find((option) => option.value === value)?.label ?? "Sort by"
+          }
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         {SORT_OPTIONS.map((option) => (
