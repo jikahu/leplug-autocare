@@ -19,6 +19,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const itemCount = useCartItemCount();
+  const isCartDrawerOpen = useCartDrawerStore((state) => state.isOpen);
   const openCartDrawer = useCartDrawerStore((state) => state.open);
   const router = useRouter();
 
@@ -103,6 +104,8 @@ export function Header() {
             onClick={openCartDrawer}
             className="relative rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             aria-label={`Cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
+            aria-haspopup="dialog"
+            aria-expanded={isCartDrawerOpen}
           >
             <ShoppingCart className="size-5" />
             {itemCount > 0 && (
