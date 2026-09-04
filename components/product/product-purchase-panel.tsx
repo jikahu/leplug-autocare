@@ -96,7 +96,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
           </Button>
         ) : (
           <Button type="button" onClick={handleAddToCart}>
-            {justAdded ? "Added to Cart" : "Add to Cart"}
+            <span aria-live="polite">{justAdded ? "Added to Cart" : "Add to Cart"}</span>
           </Button>
         )}
         <Button

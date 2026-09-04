@@ -17,6 +17,7 @@ export function ProductGallery({
 
   return (
     <div className="space-y-3">
+      {/* Main tile doesn't vary by selectedIndex yet — there's no real photo per index to show, only a category placeholder. Swap in images[selectedIndex] here once real product photography exists. */}
       <div
         role="img"
         aria-label={productName}
