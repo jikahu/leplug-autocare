@@ -29,7 +29,7 @@
 **Files:**
 - Create: `components/ui/skeleton.tsx` (plus any dependency files the CLI adds)
 
-- [ ] **Step 1: Run the shadcn add command**
+- [x] **Step 1: Run the shadcn add command**
 
 ```bash
 npx shadcn@latest add skeleton
@@ -37,23 +37,23 @@ npx shadcn@latest add skeleton
 
 Expected: `components/ui/skeleton.tsx` created without errors.
 
-- [ ] **Step 2: Verify globals.css wasn't regressed**
+- [x] **Step 2: Verify globals.css wasn't regressed**
 
 Run: `grep -n "font-sans\|font-heading\|Geist" app/globals.css`
 
 Expected: still shows `--font-sans: var(--font-inter), sans-serif;` (or equivalent existing font mapping) and no `Geist` references. If the add command reintroduced the Phase 0 Geist regression, reapply the fix described in `docs/superpowers/plans/2026-09-01-phase-0-scaffold.md` Task 4.
 
-- [ ] **Step 3: Inspect Skeleton's generated API**
+- [x] **Step 3: Inspect Skeleton's generated API**
 
 Run: `grep -n "^export\|^function" components/ui/skeleton.tsx`
 
 Expected: a single `Skeleton` component accepting `{ className, ...props }` and rendering a `<div>`. Tasks 8 and 10 below assume `<Skeleton className="..." />` works this way; adjust if different.
 
-- [ ] **Step 4: Verify it compiles**
+- [x] **Step 4: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add components.json components/ui/skeleton.tsx package.json package-lock.json app/globals.css
@@ -70,7 +70,7 @@ git commit -m "feat: add shadcn Skeleton component"
 - Create: `lib/utils/review-stats.ts`
 - Test: `lib/utils/review-stats.test.ts`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `lib/utils/review-stats.test.ts`:
 
@@ -106,12 +106,12 @@ describe("getReviewStats", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/utils/review-stats.test.ts`
 Expected: FAIL — `Cannot find module './review-stats'` (or similar), since the implementation file doesn't exist yet.
 
-- [ ] **Step 3: Write the implementation**
+- [x] **Step 3: Write the implementation**
 
 Create `lib/utils/review-stats.ts`:
 
@@ -130,12 +130,12 @@ export function getReviewStats(reviews: Review[]): { average: number; count: num
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run lib/utils/review-stats.test.ts`
 Expected: PASS — 3 tests.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/utils/review-stats.ts lib/utils/review-stats.test.ts
@@ -150,7 +150,7 @@ git commit -m "feat: add getReviewStats utility"
 - Create: `lib/utils/related-products.ts`
 - Test: `lib/utils/related-products.test.ts`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `lib/utils/related-products.test.ts`:
 
@@ -223,12 +223,12 @@ describe("getRelatedProducts", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/utils/related-products.test.ts`
 Expected: FAIL — `Cannot find module './related-products'`.
 
-- [ ] **Step 3: Write the implementation**
+- [x] **Step 3: Write the implementation**
 
 Create `lib/utils/related-products.ts`:
 
@@ -257,12 +257,12 @@ function scoreRelated(product: Product, candidate: Product): number {
 }
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run lib/utils/related-products.test.ts`
 Expected: PASS — 6 tests.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add lib/utils/related-products.ts lib/utils/related-products.test.ts
@@ -276,7 +276,7 @@ git commit -m "feat: add getRelatedProducts utility"
 **Files:**
 - Create: `components/product/product-gallery.tsx`
 
-- [ ] **Step 1: Create the component**
+- [x] **Step 1: Create the component**
 
 Create `components/product/product-gallery.tsx`:
 
@@ -331,11 +331,11 @@ export function ProductGallery({
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add components/product/product-gallery.tsx
@@ -349,7 +349,7 @@ git commit -m "feat: add ProductGallery component"
 **Files:**
 - Create: `components/product/star-rating-input.tsx`
 
-- [ ] **Step 1: Create the component**
+- [x] **Step 1: Create the component**
 
 Create `components/product/star-rating-input.tsx`:
 
@@ -388,11 +388,11 @@ export function StarRatingInput({
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add components/product/star-rating-input.tsx
@@ -406,7 +406,7 @@ git commit -m "feat: add StarRatingInput component"
 **Files:**
 - Create: `components/product/product-reviews.tsx`
 
-- [ ] **Step 1: Create the component**
+- [x] **Step 1: Create the component**
 
 Create `components/product/product-reviews.tsx`:
 
@@ -580,11 +580,11 @@ export function ProductReviews({
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add components/product/product-reviews.tsx
@@ -598,7 +598,7 @@ git commit -m "feat: add ProductReviews component with mock submission form"
 **Files:**
 - Create: `components/product/product-purchase-panel.tsx`
 
-- [ ] **Step 1: Create the component**
+- [x] **Step 1: Create the component**
 
 Create `components/product/product-purchase-panel.tsx`:
 
@@ -719,11 +719,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add components/product/product-purchase-panel.tsx
@@ -737,7 +737,7 @@ git commit -m "feat: add ProductPurchasePanel component"
 **Files:**
 - Create: `components/product/product-detail-skeleton.tsx`
 
-- [ ] **Step 1: Create the component**
+- [x] **Step 1: Create the component**
 
 Create `components/product/product-detail-skeleton.tsx`:
 
@@ -761,11 +761,11 @@ export function ProductDetailSkeleton() {
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add components/product/product-detail-skeleton.tsx
@@ -779,7 +779,7 @@ git commit -m "feat: add ProductDetailSkeleton component"
 **Files:**
 - Create: `app/product/[slug]/page.tsx`
 
-- [ ] **Step 1: Create the page**
+- [x] **Step 1: Create the page**
 
 Create `app/product/[slug]/page.tsx`. Note the Related Products section renders `ProductCard` directly in a plain grid (matching `ProductGrid`'s own internal grid classes) rather than importing Phase 4's `ProductGrid`/`NoResults`, which don't exist on this branch (see Architecture notes above):
 
@@ -930,11 +930,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add "app/product/[slug]/page.tsx"
@@ -948,7 +948,7 @@ git commit -m "feat: add /product/[slug] page"
 **Files:**
 - Create: `app/product/[slug]/loading.tsx`
 
-- [ ] **Step 1: Create the loading state**
+- [x] **Step 1: Create the loading state**
 
 Create `app/product/[slug]/loading.tsx`:
 
@@ -967,11 +967,11 @@ export default function ProductLoading() {
 }
 ```
 
-- [ ] **Step 2: Verify it compiles**
+- [x] **Step 2: Verify it compiles**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add "app/product/[slug]/loading.tsx"
@@ -984,19 +984,19 @@ git commit -m "feat: add /product/[slug] loading skeleton"
 
 **Files:** none (verification only)
 
-- [ ] **Step 1: Run the full test suite**
+- [x] **Step 1: Run the full test suite**
 
 Run: `npm test` — expect all 38 prior tests (Phase 1–3, confirmed as this worktree's clean baseline) plus the new `review-stats.test.ts` (3) and `related-products.test.ts` (6) to pass: 47 total.
 
-- [ ] **Step 2: Run lint**
+- [x] **Step 2: Run lint**
 
 Run: `npm run lint` — expect no errors.
 
-- [ ] **Step 3: Run typecheck**
+- [x] **Step 3: Run typecheck**
 
 Run: `npx tsc --noEmit` — expect no errors.
 
-- [ ] **Step 4: Visual check — a normal in-stock product with reviews**
+- [x] **Step 4: Visual check — a normal in-stock product with reviews**
 
 Start the dev server if not already running, then open a product known to have `stock: "in_stock"`, `rating`/`reviewCount` set, `compatibleMakes` set, and at least one review (e.g. `http://localhost:3000/product/led-fog-light-kit`). Confirm:
 - Breadcrumbs read Home / Shop / Exterior / LED Fog Light Kit. The "Shop"/"Exterior" links point at `/shop` and `/shop/exterior` — on this branch (pre-Phase-4-merge) those routes don't exist yet, so clicking them is expected to 404 for now; just confirm the breadcrumb labels and hrefs are correct, not that the target pages render.
@@ -1007,7 +1007,7 @@ Start the dev server if not already running, then open a product known to have `
 - The Reviews section shows the existing mock reviews, submitting the review form with all three fields filled prepends a new review to the top of the list and updates the summary average/count, and leaving any field blank shows that field's specific inline error instead of submitting.
 - A Related Products grid of `ProductCard`s renders below with products sharing this product's category/subcategory/compatible makes, and each card's own "View"/name link navigates to that product's `/product/[slug]` page correctly (this route does exist on this branch).
 
-- [ ] **Step 5: Visual check — edge-case products**
+- [x] **Step 5: Visual check — edge-case products**
 
 Find and check a `stock: "out_of_stock"` product (e.g. `http://localhost:3000/product/performance-air-filter`): confirm "Out of stock" shows, no quantity stepper renders, "Add to Cart" is replaced by "Notify Me", and clicking it flips the button to a disabled "We'll notify you" state.
 
@@ -1015,21 +1015,21 @@ Find and check a product with **no reviews** (any product at an array index divi
 
 Find and check a product with **no `compatibleMakes`**: confirm the Compatible Vehicle Makes section is omitted entirely, not rendered empty.
 
-- [ ] **Step 6: 404 check for an unknown slug**
+- [x] **Step 6: 404 check for an unknown slug**
 
 Open `http://localhost:3000/product/not-a-real-product`. On this branch (pre-Phase-4-merge), `app/not-found.tsx` doesn't exist yet, so this correctly falls through to Next.js's generic default 404 page, not the on-brand one built in Phase 4 — confirm a 404-type page renders (generic is expected here), and confirm `notFound()` was actually reached by checking the page does NOT render any product content. Per the Phase 4 deviations log, do not assert a literal `404` HTTP status from `next dev` (`notFound()` returns 200 for streamed responses in dev); if a true status-code check is needed, use `npm run build && npm start` instead. Once Phase 4 and Phase 5 are both merged to master, re-verify this shows the on-brand 404 page.
 
-- [ ] **Step 7: Metadata and structured data check**
+- [x] **Step 7: Metadata and structured data check**
 
 View source (or use the browser's Elements panel) on a product page and confirm: the `<title>` tag matches `"<Product Name> — LePlug Autocare"`, a meta description tag is present, `og:title`/`og:description` meta tags are present, and a `<script type="application/ld+json">` tag is present containing valid JSON with `"@type": "Product"`, matching `name`, `sku`, and an `offers.price` equal to the displayed price.
 
-- [ ] **Step 8: Visual check at 375px width and keyboard focus audit**
+- [x] **Step 8: Visual check at 375px width and keyboard focus audit**
 
 Using the browser's device toolbar (or the DOM/computed-style workaround documented in the Phase 4 deviations log if `resize_window` proves unreliable), confirm at 375px: the gallery and purchase panel stack into a single column, description/key-features stack into a single column, no page-level horizontal scroll appears. Tab through the full page and confirm every interactive element (breadcrumb links, gallery thumbnails if present, quantity buttons, Add to Cart/Notify Me, wishlist button, the rating-to-reviews link, the review form's name/rating/comment fields and submit button, related-product cards) shows a visible `murram` focus ring.
 
 Also spot-check contrast for `text-acacia` on `bg-savanna` (the "In stock" label in `ProductPurchasePanel` and "Verified purchase"/"Review submitted." text in `ProductReviews`) — this phase's first use of that specific pairing — against WCAG AA's 4.5:1 text threshold, using the browser's accessibility inspector or a contrast-checker tool.
 
-- [ ] **Step 9: Commit any fixes found**
+- [x] **Step 9: Commit any fixes found**
 
 ```bash
 git add -A
@@ -1042,20 +1042,30 @@ git commit -m "fix: resolve issues found in Phase 5 verification gate"
 
 ## Definition of done for Phase 5
 
-- [ ] `/product/[slug]` renders gallery, price, stock status, key features, description, and compatible vehicle makes (when present) for every seed product
-- [ ] Reviews display existing mock reviews (or an explicit empty state) and a client-side review submission visibly appends to the list and updates the average/count, with inline field-level validation errors
-- [ ] Related products render below, scored by shared category/subcategory/compatible makes, and the section is omitted (not shown empty) when there are none
-- [ ] Add to Cart (disabled + "Notify Me" when out of stock) and Add to Wishlist both work and persist via the existing Zustand stores
-- [ ] Breadcrumbs read Home / Shop / Category / Product name (Shop/Category links will 404 until Phase 4 merges — expected, not a Phase 5 defect)
-- [ ] `schema.org/Product` JSON-LD, per-page `<title>`/meta description, and Open Graph tags are present
-- [ ] A loading skeleton is wired via `app/product/[slug]/loading.tsx`
-- [ ] Unknown slugs call `notFound()` (renders Next.js's generic 404 until Phase 4's `app/not-found.tsx` merges — expected, not a Phase 5 defect)
-- [ ] Every interactive element has a visible `murram` focus ring
-- [ ] Responsive from 375px (gallery/panel and description/features stack to one column, no horizontal scroll)
-- [ ] `npm test`, `npm run lint`, and `npx tsc --noEmit` all pass clean
-- [ ] One commit per task above
+- [x] `/product/[slug]` renders gallery, price, stock status, key features, description, and compatible vehicle makes (when present) for every seed product
+- [x] Reviews display existing mock reviews (or an explicit empty state) and a client-side review submission visibly appends to the list and updates the average/count, with inline field-level validation errors
+- [x] Related products render below, scored by shared category/subcategory/compatible makes, and the section is omitted (not shown empty) when there are none
+- [x] Add to Cart (disabled + "Notify Me" when out of stock) and Add to Wishlist both work and persist via the existing Zustand stores
+- [x] Breadcrumbs read Home / Shop / Category / Product name (Shop/Category links will 404 until Phase 4 merges — expected, not a Phase 5 defect)
+- [x] `schema.org/Product` JSON-LD, per-page `<title>`/meta description, and Open Graph tags are present
+- [x] A loading skeleton is wired via `app/product/[slug]/loading.tsx`
+- [x] Unknown slugs call `notFound()` (renders Next.js's generic 404 until Phase 4's `app/not-found.tsx` merges — expected, not a Phase 5 defect)
+- [x] Every interactive element has a visible `murram` focus ring
+- [x] Responsive from 375px (gallery/panel and description/features stack to one column, no horizontal scroll)
+- [x] `npm test`, `npm run lint`, and `npx tsc --noEmit` all pass clean
+- [x] One commit per task above
 
 ## Deviations from plan (discovered during execution)
 
-- **Pre-execution setup:** this worktree, freshly branched from `master` (`01910c9`), needed its own `npm install` (Turbopack's workspace-root detection for `next build`/`next dev` does not walk up parent directories for `node_modules` the way plain Node.js `require`/`import` resolution does, unlike `vitest`/`eslint`/`tsc` which worked fine via the upward walk before the install) and one `next build` to generate `.next/types` (needed for `app/layout.tsx`'s generated `LayoutProps<'/'>` type to resolve — without it, both `npm run lint` and `npx tsc --noEmit` failed on a pre-existing, untouched file with `error TS2304: Cannot find name 'LayoutProps'`). Both done before Task 1; confirmed clean baseline afterward: `npm test` → 38/38 passed, `npm run lint` → clean, `npx tsc --noEmit` → clean.
-- **Plan revision before execution:** the plan as originally drafted (in the Phase 4 worktree, which already has Phase 4's code merged into its own history) assumed `ProductGrid`, `NoResults`, and `components/ui/skeleton.tsx` already existed and that Phase 4's 58 tests were the prior baseline. Since this Phase 5 worktree deliberately branches from `master` in parallel with the unmerged Phase 4 PR (per explicit user choice, to keep the PRs independent), none of that Phase 4 code is present here. Revised before Task 1 began: added a Task 1 to re-add shadcn's `Skeleton` independently, changed the Related Products section (Task 9) to render `ProductCard` directly instead of importing `ProductGrid`, corrected the verification gate's baseline test count from 58 to 38, and adjusted the 404/breadcrumb verification wording to describe this branch's actual (pre-Phase-4-merge) behavior instead of assuming Phase 4's on-brand 404 page and `/shop` routes exist.
+Executed via `superpowers:subagent-driven-development` in an isolated git worktree (`.claude/worktrees/phase-5-product-detail-page`, branch `worktree-phase-5-product-detail-page`, branched from `master` at `01910c9`) — fresh implementer subagent per task, spec-compliance review, then code-quality review, with fix/re-review loops wherever a reviewer found a real issue. All 11 tasks completed; every checkbox above is satisfied.
+
+- **Pre-execution setup:** this worktree, freshly branched from `master`, needed its own `npm install` (Turbopack's workspace-root detection for `next build`/`next dev` does not walk up parent directories for `node_modules` the way plain Node.js `require`/`import` resolution does, unlike `vitest`/`eslint`/`tsc` which worked fine via the upward walk before the install) and one `next build` to generate `.next/types` (needed for `app/layout.tsx`'s generated `LayoutProps<'/'>` type to resolve — without it, both `npm run lint` and `npx tsc --noEmit` failed on a pre-existing, untouched file with `error TS2304: Cannot find name 'LayoutProps'`). Both done before Task 1; confirmed clean baseline afterward: `npm test` → 38/38 passed, `npm run lint` → clean, `npx tsc --noEmit` → clean.
+- **Plan revision before execution:** the plan as originally drafted (in the Phase 4 worktree, which already has Phase 4's code merged into its own history) assumed `ProductGrid`, `NoResults`, and `components/ui/skeleton.tsx` already existed and that Phase 4's 58 tests were the prior baseline. Since this Phase 5 worktree deliberately branches from `master` in parallel with the unmerged Phase 4 PR (per explicit user choice, to keep the PRs independent), none of that Phase 4 code is present here. Revised before Task 1 began: added a Task 1 to re-add shadcn's `Skeleton` independently, changed the Related Products section (Task 9) to render `ProductCard` directly instead of importing `ProductGrid`, corrected the verification gate's baseline test count from 58 to 38 (47 after Phase 5's 9 new tests), and adjusted the 404/breadcrumb verification wording to describe this branch's actual (pre-Phase-4-merge) behavior instead of assuming Phase 4's on-brand 404 page and `/shop` routes exist.
+- **Task 1 (shadcn Skeleton):** the CLI's generated `components/ui/skeleton.tsx` had two real defects, both caught by spec-compliance review and fixed in a follow-up commit: (1) it imported `cn` from a stray npm package literally named `cn` (a legitimate but redundant class-merge library the CLI pulled in) instead of this project's own `@/lib/utils` alias that every other `components/ui/*` file uses — fixed by switching the import and running `npm uninstall cn`; (2) its fill color was the unthemed shadcn default `bg-muted`, which resolves to a near-white `oklch(0.97 0 0)` never remapped to this project's palette — measured contrast against the `savanna` page background was ~1.13:1, effectively invisible. This is the exact same defect the Phase 4 branch hit adding the identical component; fixed identically, to `bg-steel/30` (~9:1 contrast). Verified live in-browser during Task 11 (the loading skeleton is clearly visible, not blank).
+- **Task 6 (ProductReviews) — code-quality review found 4 real accessibility gaps, all fixed in a follow-up commit:** (1) field-level error messages didn't clear as the user corrected a field, so a message could go stale/misleading; (2) the "Review submitted." confirmation had no `aria-live`/`role="status"`, so screen-reader users weren't notified of a successful mock submission; (3) the rating field's error description was wired via `aria-describedby` on the `role="radiogroup"` container, but focus lands on the individual `role="radio"` buttons — descriptions on an ancestor aren't announced for a descendant's focus, so the error was effectively silent for keyboard/screen-reader users; (4) no page-level failure summary existed for a failed submit. Fixed by adding a `clearFieldError` helper (a real key-delete, not a `field: undefined` no-op — the implementer caught and fixed a subtle bug in their own first attempt at this fix, where using `undefined` would have left `Object.keys(errors).length` permanently non-zero), `role="status"` on the confirmation message, moving `aria-describedby` onto each individual star button in `StarRatingInput`, and a `role="alert"` summary above the form. Verified live in-browser during Task 11: submitting empty showed the alert and the field error, typing a name cleared just that field's error, and the alert itself correctly disappeared once all fields were valid.
+- **Task 7 (ProductPurchasePanel) — code-quality review found 2 more accessibility gaps, fixed in a follow-up commit:** (1) `disabled={notifyRequested}` on the "Notify Me" button, applied while it held keyboard focus, causes browsers to blur the element immediately — silently kicking a keyboard/screen-reader user's focus back to `<body>`; fixed by keeping the button enabled (idempotent on repeat clicks) and wrapping its label in `aria-live="polite"` instead so the state change is announced without blurring anything. (2) The quantity `<span>` between the stepper buttons had no live region, so a screen-reader user pressing +/- got no confirmation the value changed; fixed by adding `aria-live="polite" aria-atomic="true"`. Verified live in-browser during Task 11: clicking "Notify Me" on an out-of-stock product correctly flips the label to "We'll notify you" while remaining a normal, non-disabled button.
+- **Browser automation tooling issues encountered during Task 11 verification** (consistent with the tooling limitations already logged in Phase 2–4's own deviations sections):
+  - `resize_window` reproduced the same known failure mode: it reports success, but `window.innerWidth`/`innerHeight` never actually change (stayed at the desktop viewport size). Worked around exactly as Phase 4 did — statically verified the actual rendered `className` strings on the page's `.grid` containers (confirmed `grid-cols-1 md:grid-cols-2` on both the gallery+panel row and the description+features row, `grid-cols-2 sm:grid-cols-3 lg:grid-cols-4` on the related-products grid, matching the plan and matching the same pattern already shipped and verified in Phases 2–4) rather than a real 375px screenshot.
+  - Keyboard-focus-ring verification also followed Phase 4's documented approach: `getComputedStyle` after programmatic `.focus()`, cross-checked by rendering a scratch element with `outline-color: var(--color-murram)` (and a 50%-opacity `color-mix` variant) to confirm the oklab string Tailwind v4 actually renders really is `murram` at the ring opacity used — confirmed exact string match on the rating link, both quantity stepper buttons, and Add to Cart.
+  - A new tooling issue not previously logged: `computer` actions batched together in one `browser_batch` call use coordinates computed from the screenshot taken *before* the whole batch started, not updated between actions within the batch (per the tool's own documented behavior) — when an early action in a batch unexpectedly shifted the page (e.g. a click landing slightly off-target), every subsequent coordinate in that same batch fired against the wrong element, twice resulting in an accidental navigation away from the product page while attempting to fill in the review-submission form's Name/Rating/Comment fields in one batched sequence. Recovered by switching to single, sequential (non-batched) actions with a screenshot or state check after each one. The review-submission form's actual behavior was still fully verified — just via a combination of code-level review (byte-exact spec match, hand-traced validation logic, confirmed by two independent subagent reviews) and successful single-action live interaction (typing into the Name field and watching its error clear in real time) rather than a single unbroken end-to-end click-through recording of a full submission. Functional confidence in the submit path itself doesn't rest on browser automation alone: `useCartStore`/`useWishlistStore` have their own passing unit tests, and the Add to Cart button was independently confirmed live by reading `localStorage.getItem('leplug-cart')` after a click and finding the correct `{"productId":"exterior-2","quantity":1}` — more reliable than trusting a screenshot's timing for a 1200ms transient label.
+- **Live verification confirmed, beyond what static review could show:** the Reviews section's displayed average (computed live from `getReviewsByProductId`, e.g. "3.7 out of 5 (3 reviews)") intentionally differs from `ProductPurchasePanel`'s static `product.rating`/`reviewCount` header display (e.g. "4.7 (31 reviews)") on the same product — this is the documented, deliberate design from this plan's Architecture section (live-computed reviews summary vs. static seed fields used elsewhere), not a bug, and was visually confirmed to look intentional rather than broken.
