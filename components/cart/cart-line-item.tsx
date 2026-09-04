@@ -34,7 +34,7 @@ export function CartLineItem({ line }: { line: CartLine }) {
             <button
               type="button"
               aria-label={`Decrease quantity of ${line.product.name}`}
-              onClick={() => updateQuantity(line.productId, line.quantity - 1)}
+              onClick={() => updateQuantity(line.productId, Math.max(1, line.quantity - 1))}
               className="p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               <Minus className="size-3.5" />
@@ -60,14 +60,14 @@ export function CartLineItem({ line }: { line: CartLine }) {
             type="button"
             aria-label={`Remove ${line.product.name} from cart`}
             onClick={() => removeItem(line.productId)}
-            className="rounded-sm p-1 text-steel hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+            className="rounded-sm p-1.5 text-steel hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
           >
             <X className="size-4" aria-hidden="true" />
           </button>
         </div>
       </div>
 
-      <span className="shrink-0 font-semibold text-tarmac">{formatCurrency(line.lineTotal)}</span>
+      <span className="shrink-0 self-center font-semibold text-tarmac">{formatCurrency(line.lineTotal)}</span>
     </div>
   );
 }
