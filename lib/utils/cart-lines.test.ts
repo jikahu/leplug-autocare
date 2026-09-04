@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getCartLines, getCartSubtotal } from "./cart-lines";
-import type { Product } from "@/lib/types";
-import type { CartItem } from "@/lib/types";
+import type { CartItem, Product } from "@/lib/types";
 
 function sampleProduct(overrides: Partial<Product>): Product {
   return {
