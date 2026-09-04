@@ -76,7 +76,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
             >
               <Minus className="size-4" />
             </button>
-            <span className="w-8 text-center text-sm font-medium text-tarmac">{quantity}</span>
+            <span aria-live="polite" aria-atomic="true" className="w-8 text-center text-sm font-medium text-tarmac">{quantity}</span>
             <button
               type="button"
               aria-label="Increase quantity"
@@ -91,8 +91,8 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 
       <div className="flex flex-wrap gap-3">
         {isOutOfStock ? (
-          <Button type="button" disabled={notifyRequested} onClick={() => setNotifyRequested(true)}>
-            {notifyRequested ? "We'll notify you" : "Notify Me"}
+          <Button type="button" onClick={() => setNotifyRequested(true)}>
+            <span aria-live="polite">{notifyRequested ? "We'll notify you" : "Notify Me"}</span>
           </Button>
         ) : (
           <Button type="button" onClick={handleAddToCart}>
