@@ -28,6 +28,15 @@ export function ProductReviews({
   const stats = getReviewStats(reviews);
   const summaryStars = getStarCounts(stats.average);
 
+  function clearFieldError(field: keyof FormErrors) {
+    setErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  }
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const nextErrors: FormErrors = {};
@@ -104,6 +113,11 @@ export function ProductReviews({
 
       <form onSubmit={handleSubmit} className="max-w-md space-y-4 border-t border-steel/30 pt-6">
         <h3 className="font-heading text-lg font-bold text-tarmac">Write a review</h3>
+        {Object.keys(errors).length > 0 && (
+          <p role="alert" className="text-sm font-medium text-murram">
+            Fix the errors below before submitting.
+          </p>
+        )}
 
         <div className="space-y-1">
           <label htmlFor="review-name" className="text-sm font-medium text-tarmac">
@@ -113,7 +127,10 @@ export function ProductReviews({
             id="review-name"
             type="text"
             value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => {
+              setUserName(e.target.value);
+              clearFieldError("userName");
+            }}
             aria-invalid={Boolean(errors.userName)}
             aria-describedby={errors.userName ? "review-name-error" : undefined}
             className="w-full rounded-md border border-steel/40 bg-savanna px-3 py-2 text-sm text-tarmac focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
@@ -129,7 +146,10 @@ export function ProductReviews({
           <span className="text-sm font-medium text-tarmac">Rating</span>
           <StarRatingInput
             value={rating}
-            onChange={setRating}
+            onChange={(next) => {
+              setRating(next);
+              clearFieldError("rating");
+            }}
             describedBy={errors.rating ? "review-rating-error" : undefined}
           />
           {errors.rating && (
@@ -146,7 +166,10 @@ export function ProductReviews({
           <textarea
             id="review-comment"
             value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) => {
+              setComment(e.target.value);
+              clearFieldError("comment");
+            }}
             rows={4}
             aria-invalid={Boolean(errors.comment)}
             aria-describedby={errors.comment ? "review-comment-error" : undefined}
@@ -160,7 +183,11 @@ export function ProductReviews({
         </div>
 
         <Button type="submit">Submit Review</Button>
-        {submitted && <p className="text-sm font-medium text-acacia">Review submitted.</p>}
+        {submitted && (
+          <p role="status" className="text-sm font-medium text-acacia">
+            Review submitted.
+          </p>
+        )}
       </form>
     </div>
   );
