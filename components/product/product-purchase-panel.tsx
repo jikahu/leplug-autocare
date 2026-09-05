@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/utils/format-currency";
 import { getStarCounts } from "@/lib/utils/star-rating";
 import { useCartStore } from "@/lib/store/cart";
+import { useCartDrawerStore } from "@/lib/store/cart-drawer";
 import { useWishlistStore } from "@/lib/store/wishlist";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +16,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const [justAdded, setJustAdded] = useState(false);
   const [notifyRequested, setNotifyRequested] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
+  const openCartDrawer = useCartDrawerStore((state) => state.open);
   const isWishlisted = useWishlistStore((state) => state.isWishlisted(product.id));
   const toggleWishlist = useWishlistStore((state) => state.toggle);
 
@@ -23,6 +25,7 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 
   function handleAddToCart() {
     addItem(product.id, quantity);
+    openCartDrawer();
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1200);
   }

@@ -5,7 +5,9 @@ import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Search, ShoppingCart, User } from "lucide-react";
 import { useCartItemCount } from "@/lib/store/cart";
+import { useCartDrawerStore } from "@/lib/store/cart-drawer";
 import { MobileNav } from "./mobile-nav";
+import { CartDrawer } from "@/components/cart/cart-drawer";
 
 const NAV_LINKS = [
   { label: "Shop", href: "/shop" },
@@ -17,6 +19,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const itemCount = useCartItemCount();
+  const isCartDrawerOpen = useCartDrawerStore((state) => state.isOpen);
+  const openCartDrawer = useCartDrawerStore((state) => state.open);
   const router = useRouter();
 
   useEffect(() => {
@@ -95,10 +99,13 @@ export function Header() {
           >
             <User className="size-5" />
           </Link>
-          <Link
-            href="/cart"
+          <button
+            type="button"
+            onClick={openCartDrawer}
             className="relative rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             aria-label={`Cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
+            aria-haspopup="dialog"
+            aria-expanded={isCartDrawerOpen}
           >
             <ShoppingCart className="size-5" />
             {itemCount > 0 && (
@@ -106,7 +113,7 @@ export function Header() {
                 {itemCount}
               </span>
             )}
-          </Link>
+          </button>
           <MobileNav navLinks={NAV_LINKS} />
         </div>
       </div>
@@ -131,6 +138,8 @@ export function Header() {
           </form>
         </div>
       )}
+
+      <CartDrawer />
     </header>
   );
 }

@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from "react";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { CartItem } from "@/lib/types";
@@ -58,5 +59,24 @@ export const useCartStore = create<CartState>()(
 export function useCartItemCount(): number {
   return useCartStore((state) =>
     state.items.reduce((sum, item) => sum + item.quantity, 0)
+  );
+}
+
+/**
+ * True once the persisted cart has finished loading from localStorage.
+ * `createJSONStorage` evaluates `localStorage` eagerly, which throws in any
+ * environment without it (SSR, `next build`'s static prerendering) — that
+ * failure is caught internally and leaves `useCartStore.persist` undefined
+ * there, so every access below is optional-chained and deferred inside a
+ * closure `useSyncExternalStore` only invokes client-side. Its
+ * `getServerSnapshot` (the third argument) always returns `false`, so the
+ * server-rendered and first client-rendered HTML match — no hydration
+ * mismatch — and this never touches `.persist` during SSR/build at all.
+ */
+export function useCartHasHydrated(): boolean {
+  return useSyncExternalStore(
+    (callback) => useCartStore.persist?.onFinishHydration(callback) ?? (() => {}),
+    () => useCartStore.persist?.hasHydrated() ?? false,
+    () => false
   );
 }

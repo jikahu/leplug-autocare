@@ -11,3 +11,7 @@ export function deliveryFee(zone: Address["zone"], subtotal: number): number {
   if (subtotal >= FREE_DELIVERY_THRESHOLD) return 0;
   return DELIVERY_ZONE_FEES[zone];
 }
+
+export function freeDeliveryRemaining(subtotal: number): number {
+  return Math.max(0, FREE_DELIVERY_THRESHOLD - subtotal);
+}
