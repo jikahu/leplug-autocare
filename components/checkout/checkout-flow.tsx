@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCartStore, useCartHasHydrated } from "@/lib/store/cart";
 import { useOrderStore } from "@/lib/store/orders";
 import { products } from "@/lib/data/products";
@@ -36,12 +36,35 @@ export function CheckoutFlow() {
   const [mpesaPhone, setMpesaPhone] = useState("");
   const [placedOrder, setPlacedOrder] = useState<Order | null>(null);
 
+  const stepContainerRef = useRef<HTMLDivElement>(null);
+  const confirmationRef = useRef<HTMLDivElement>(null);
+
+  // Each step's form/content fully unmounts and is replaced when `step`
+  // changes, so the browser drops focus back to <body> with no cue to a
+  // keyboard or screen-reader user that anything happened. Moving focus to
+  // the new step's container (and to the confirmation once an order is
+  // placed) gives them a landing point, matching standard SPA route-change
+  // focus-management practice.
+  useEffect(() => {
+    stepContainerRef.current?.focus();
+  }, [step]);
+
+  useEffect(() => {
+    if (placedOrder) {
+      confirmationRef.current?.focus();
+    }
+  }, [placedOrder]);
+
   if (!hasHydrated) {
     return null;
   }
 
   if (placedOrder) {
-    return <CheckoutConfirmation order={placedOrder} />;
+    return (
+      <div ref={confirmationRef} tabIndex={-1} className="outline-none">
+        <CheckoutConfirmation order={placedOrder} />
+      </div>
+    );
   }
 
   const lines = getCartLines(items, products);
@@ -74,41 +97,43 @@ export function CheckoutFlow() {
     <div className="space-y-8">
       <CheckoutSteps currentStep={step} />
 
-      {step === 1 && (
-        <CheckoutAddressStep details={details} onChange={setDetails} onNext={() => setStep(2)} />
-      )}
-      {step === 2 && (
-        <CheckoutDeliveryStep
-          zone={zone}
-          onChange={setZone}
-          subtotal={subtotal}
-          onNext={() => setStep(3)}
-          onBack={() => setStep(1)}
-        />
-      )}
-      {step === 3 && (
-        <CheckoutPaymentStep
-          method={method}
-          onChangeMethod={setMethod}
-          mpesaPhone={mpesaPhone}
-          onChangeMpesaPhone={setMpesaPhone}
-          onNext={() => setStep(4)}
-          onBack={() => setStep(2)}
-        />
-      )}
-      {step === 4 && zone && method && (
-        <CheckoutReviewStep
-          details={details}
-          zone={zone}
-          method={method}
-          lines={lines}
-          subtotal={subtotal}
-          fee={fee}
-          total={total}
-          onBack={() => setStep(3)}
-          onPlaceOrder={handlePlaceOrder}
-        />
-      )}
+      <div ref={stepContainerRef} tabIndex={-1} className="outline-none">
+        {step === 1 && (
+          <CheckoutAddressStep details={details} onChange={setDetails} onNext={() => setStep(2)} />
+        )}
+        {step === 2 && (
+          <CheckoutDeliveryStep
+            zone={zone}
+            onChange={setZone}
+            subtotal={subtotal}
+            onNext={() => setStep(3)}
+            onBack={() => setStep(1)}
+          />
+        )}
+        {step === 3 && (
+          <CheckoutPaymentStep
+            method={method}
+            onChangeMethod={setMethod}
+            mpesaPhone={mpesaPhone}
+            onChangeMpesaPhone={setMpesaPhone}
+            onNext={() => setStep(4)}
+            onBack={() => setStep(2)}
+          />
+        )}
+        {step === 4 && zone && method && (
+          <CheckoutReviewStep
+            details={details}
+            zone={zone}
+            method={method}
+            lines={lines}
+            subtotal={subtotal}
+            fee={fee}
+            total={total}
+            onBack={() => setStep(3)}
+            onPlaceOrder={handlePlaceOrder}
+          />
+        )}
+      </div>
     </div>
   );
 }
