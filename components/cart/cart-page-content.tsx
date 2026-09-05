@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useCartStore } from "@/lib/store/cart";
 import { getCartLines, getCartSubtotal } from "@/lib/utils/cart-lines";
 import { products } from "@/lib/data/products";
@@ -8,7 +9,22 @@ import { CartSummary } from "@/components/cart/cart-summary";
 import { EmptyCart } from "@/components/cart/empty-cart";
 
 export function CartPageContent() {
+  const [hasHydrated, setHasHydrated] = useState(() => useCartStore.persist.hasHydrated());
   const items = useCartStore((state) => state.items);
+
+  useEffect(() => {
+    return useCartStore.persist.onFinishHydration(() => setHasHydrated(true));
+  }, []);
+
+  // Wait for the persisted cart to load from localStorage before deciding
+  // whether to show the empty state — otherwise a returning visitor with
+  // items in their cart briefly sees "Your cart is empty" flash in on
+  // every visit to this page (unlike the drawer, which only opens well
+  // after hydration finishes, `/cart` is a direct navigation target).
+  if (!hasHydrated) {
+    return null;
+  }
+
   const lines = getCartLines(items, products);
 
   if (lines.length === 0) {
@@ -19,12 +35,12 @@ export function CartPageContent() {
 
   return (
     <div className="flex flex-col gap-8 md:flex-row">
-      <div className="flex-1 rounded-lg border border-steel/40 bg-savanna px-4">
+      <div className="flex-1 rounded-lg border border-steel/40 px-4">
         {lines.map((line) => (
           <CartLineItem key={line.productId} line={line} />
         ))}
       </div>
-      <div className="md:w-80">
+      <div className="md:w-80 md:shrink-0">
         <CartSummary subtotal={subtotal} />
       </div>
     </div>
