@@ -1,18 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useWishlistStore } from "@/lib/store/wishlist";
+import { useWishlistStore, useWishlistHasHydrated } from "@/lib/store/wishlist";
 import { products } from "@/lib/data/products";
 import { ProductGrid } from "@/components/product/product-grid";
 import type { Product } from "@/lib/types";
 
 export function WishlistGrid() {
-  const [hasHydrated, setHasHydrated] = useState(() => useWishlistStore.persist.hasHydrated());
+  const hasHydrated = useWishlistHasHydrated();
   const productIds = useWishlistStore((state) => state.productIds);
-
-  useEffect(() => {
-    return useWishlistStore.persist.onFinishHydration(() => setHasHydrated(true));
-  }, []);
 
   // Wait for the persisted wishlist to load from localStorage before deciding
   // whether to show the empty state — same reasoning as /cart's CartPageContent:

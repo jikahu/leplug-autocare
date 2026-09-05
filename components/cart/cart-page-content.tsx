@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useCartStore } from "@/lib/store/cart";
+import { useCartStore, useCartHasHydrated } from "@/lib/store/cart";
 import { getCartLines, getCartSubtotal } from "@/lib/utils/cart-lines";
 import { products } from "@/lib/data/products";
 import { CartLineItem } from "@/components/cart/cart-line-item";
@@ -9,12 +8,8 @@ import { CartSummary } from "@/components/cart/cart-summary";
 import { EmptyCart } from "@/components/cart/empty-cart";
 
 export function CartPageContent() {
-  const [hasHydrated, setHasHydrated] = useState(() => useCartStore.persist.hasHydrated());
+  const hasHydrated = useCartHasHydrated();
   const items = useCartStore((state) => state.items);
-
-  useEffect(() => {
-    return useCartStore.persist.onFinishHydration(() => setHasHydrated(true));
-  }, []);
 
   // Wait for the persisted cart to load from localStorage before deciding
   // whether to show the empty state — otherwise a returning visitor with

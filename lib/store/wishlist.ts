@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from "react";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -32,3 +33,22 @@ export const useWishlistStore = create<WishlistState>()(
     }
   )
 );
+
+/**
+ * True once the persisted wishlist has finished loading from localStorage.
+ * `createJSONStorage` evaluates `localStorage` eagerly, which throws in any
+ * environment without it (SSR, `next build`'s static prerendering) — that
+ * failure is caught internally and leaves `useWishlistStore.persist`
+ * undefined there, so every access below is optional-chained and deferred
+ * inside a closure `useSyncExternalStore` only invokes client-side. Its
+ * `getServerSnapshot` (the third argument) always returns `false`, so the
+ * server-rendered and first client-rendered HTML match — no hydration
+ * mismatch — and this never touches `.persist` during SSR/build at all.
+ */
+export function useWishlistHasHydrated(): boolean {
+  return useSyncExternalStore(
+    (callback) => useWishlistStore.persist?.onFinishHydration(callback) ?? (() => {}),
+    () => useWishlistStore.persist?.hasHydrated() ?? false,
+    () => false
+  );
+}
