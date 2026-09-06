@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Search, ShoppingCart, User } from "lucide-react";
 import { useCartItemCount } from "@/lib/store/cart";
 import { useCartDrawerStore } from "@/lib/store/cart-drawer";
+import { useAuthStore } from "@/lib/store/auth";
 import { MobileNav } from "./mobile-nav";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 
@@ -19,6 +20,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const itemCount = useCartItemCount();
+  const currentUser = useAuthStore((state) => state.currentUser);
   const isCartDrawerOpen = useCartDrawerStore((state) => state.isOpen);
   const openCartDrawer = useCartDrawerStore((state) => state.open);
   const router = useRouter();
@@ -93,9 +95,9 @@ export function Header() {
             <Search className="size-5" />
           </button>
           <Link
-            href="/account/login"
+            href={currentUser ? "/account/orders" : "/account/login"}
             className="hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram md:block"
-            aria-label="Account"
+            aria-label={currentUser ? `Account, logged in as ${currentUser.name}` : "Account"}
           >
             <User className="size-5" />
           </Link>
