@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description:
     "Nairobi's plug for premium car care — parts, accessories, and detailing, done right.",
   openGraph: {
+    type: "website",
+    locale: "en_KE",
+    siteName: "LePlug Autocare",
     title: "LePlug Autocare — Premium Car Care in Nairobi",
     description:
       "Nairobi's plug for premium car care — parts, accessories, and detailing, done right.",

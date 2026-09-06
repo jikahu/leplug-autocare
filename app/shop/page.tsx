@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Shop All Products — LePlug Autocare",
   description: "Browse every car part, accessory, and detailing product LePlug Autocare carries.",
   openGraph: {
+    type: "website",
+    locale: "en_KE",
+    siteName: "LePlug Autocare",
     title: "Shop All Products — LePlug Autocare",
     description: "Browse every car part, accessory, and detailing product LePlug Autocare carries.",
     images: [{ url: "/images/og/default.jpg", width: 1200, height: 630 }],
