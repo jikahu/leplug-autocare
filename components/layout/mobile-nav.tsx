@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuthStore } from "@/lib/store/auth";
 import {
   Sheet,
   SheetContent,
@@ -14,6 +15,8 @@ import {
 type NavLink = { label: string; href: string };
 
 export function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
+  const currentUser = useAuthStore((state) => state.currentUser);
+
   return (
     <Sheet>
       <SheetTrigger
@@ -48,11 +51,11 @@ export function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
             </Link>
           ))}
           <Link
-            href="/account/login"
+            href={currentUser ? "/account/orders" : "/account/login"}
             className="flex items-center gap-2 rounded-md px-3 py-3 text-lg font-medium hover:bg-savanna/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
           >
             <User className="size-5" aria-hidden="true" />
-            Account
+            {currentUser ? "Account" : "Log In"}
           </Link>
         </nav>
       </SheetContent>
