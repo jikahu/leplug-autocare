@@ -31,7 +31,7 @@ export default function FaqPage() {
                 .filter((faq) => faq.category === category.id)
                 .map((faq) => (
                   <details key={faq.id} className="group py-4">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-sm text-sm font-medium text-tarmac focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-sm text-sm font-medium text-tarmac [&::-webkit-details-marker]:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram">
                       {faq.question}
                       <span
                         className="shrink-0 text-tarmac/50 transition-transform group-open:rotate-45"
