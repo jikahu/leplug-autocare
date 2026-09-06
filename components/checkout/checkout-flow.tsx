@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useCartStore, useCartHasHydrated } from "@/lib/store/cart";
 import { useOrderStore } from "@/lib/store/orders";
+import { useAuthStore } from "@/lib/store/auth";
 import { products } from "@/lib/data/products";
 import { getCartLines, getCartSubtotal } from "@/lib/utils/cart-lines";
 import { deliveryFee } from "@/lib/utils/delivery-fee";
@@ -22,6 +23,7 @@ export function CheckoutFlow() {
   const items = useCartStore((state) => state.items);
   const clearCart = useCartStore((state) => state.clear);
   const placeOrder = useOrderStore((state) => state.placeOrder);
+  const currentUser = useAuthStore((state) => state.currentUser);
 
   const [step, setStep] = useState(1);
   const [details, setDetails] = useState<DeliveryDetails>({
@@ -81,7 +83,7 @@ export function CheckoutFlow() {
     if (!zone || !method) return;
     const order: Order = {
       id: generateOrderId(),
-      userId: "guest",
+      userId: currentUser?.id ?? "guest",
       items,
       total,
       deliveryFee: fee,
