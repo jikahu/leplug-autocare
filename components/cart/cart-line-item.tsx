@@ -20,7 +20,7 @@ export function CartLineItem({ line }: { line: CartLine }) {
         <CategoryPlaceholderIcon category={line.product.category} className="size-8 text-tarmac/30" />
       </Link>
 
-      <div className="flex flex-1 flex-col gap-1">
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
         <Link
           href={`/product/${line.product.slug}`}
           className="line-clamp-2 rounded-sm text-sm font-medium text-tarmac hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
