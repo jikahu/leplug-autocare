@@ -62,7 +62,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="flex aspect-video items-center justify-center rounded-lg border border-steel/40 bg-tarmac/5 px-4 text-center text-sm text-tarmac/50">
+          <div className="flex aspect-video items-center justify-center rounded-lg border border-steel/40 bg-tarmac/5 px-4 text-center text-sm text-tarmac/70">
             Map placeholder — {BUSINESS_INFO.address}
           </div>
         </div>

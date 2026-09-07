@@ -83,7 +83,7 @@ export function CheckoutReviewStep({
         </div>
       </div>
 
-      <p className="text-xs text-tarmac/60">
+      <p className="text-xs text-tarmac/70">
         Prices shown are final. This is a demo checkout — no payment is actually processed and no
         order is really shipped.
       </p>

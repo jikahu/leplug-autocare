@@ -100,7 +100,7 @@ export function AddressManager() {
                 {address.line1}
                 {address.line2 ? `, ${address.line2}` : ""}, {address.city}
               </p>
-              <p className="text-tarmac/60">
+              <p className="text-tarmac/70">
                 {address.zone === "nairobi_metro" ? "Nairobi Metro" : "Outside Nairobi"}
               </p>
             </div>
@@ -155,7 +155,7 @@ export function AddressManager() {
 
           <div className="space-y-1">
             <label htmlFor="address-line2" className="text-sm font-medium text-tarmac">
-              Apartment, suite, etc. <span className="text-tarmac/50">(optional)</span>
+              Apartment, suite, etc. <span className="text-tarmac/70">(optional)</span>
             </label>
             <input
               id="address-line2"

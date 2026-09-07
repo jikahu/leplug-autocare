@@ -14,7 +14,7 @@ export function CheckoutConfirmation({ order }: { order: Order }) {
         received.
       </p>
       <p className="text-lg font-semibold text-murram">{formatCurrency(order.total)}</p>
-      <p className="max-w-md text-xs text-tarmac/60">
+      <p className="max-w-md text-xs text-tarmac/70">
         This is a demo order — no payment was processed and nothing will actually ship.
       </p>
       <div className="mt-2 flex flex-wrap justify-center gap-3">
