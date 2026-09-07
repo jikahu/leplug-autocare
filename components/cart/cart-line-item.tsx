@@ -12,10 +12,10 @@ export function CartLineItem({ line }: { line: CartLine }) {
   const removeItem = useCartStore((state) => state.removeItem);
 
   return (
-    <div className="flex gap-4 border-b border-steel/40 py-4 last:border-b-0">
+    <div className="flex gap-3 border-b border-steel/40 py-4 last:border-b-0">
       <Link
         href={`/product/${line.product.slug}`}
-        className="flex size-20 shrink-0 items-center justify-center rounded-lg border border-steel bg-linear-to-br from-chrome-start to-chrome-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+        className="flex size-16 shrink-0 items-center justify-center rounded-lg border border-steel bg-linear-to-br from-chrome-start to-chrome-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram sm:size-20"
       >
         <CategoryPlaceholderIcon category={line.product.category} className="size-8 text-tarmac/30" />
       </Link>
