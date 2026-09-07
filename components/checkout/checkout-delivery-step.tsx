@@ -43,7 +43,7 @@ export function CheckoutDeliveryStep({
                   value={option.value}
                   checked={zone === option.value}
                   onChange={() => onChange(option.value)}
-                  className="mt-1 accent-murram"
+                  className="mt-1 accent-murram focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-murram"
                 />
                 <span>
                   <span className="block font-medium text-tarmac">{option.label}</span>
