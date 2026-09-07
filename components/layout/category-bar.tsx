@@ -12,7 +12,7 @@ import {
 export function CategoryBar() {
   return (
     <div className="border-b border-steel bg-savanna">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <div className="mx-auto max-w-7xl overflow-x-auto px-4 md:px-8">
         <NavigationMenu>
           <NavigationMenuList>
             {categories.map((category) => (
