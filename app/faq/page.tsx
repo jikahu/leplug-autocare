@@ -16,7 +16,10 @@ export default function FaqPage() {
       </h1>
       <p className="mt-2 text-sm text-tarmac/70">
         Can&rsquo;t find what you&rsquo;re looking for?{" "}
-        <a href="/contact" className="text-murram underline underline-offset-2">
+        <a
+          href="/contact"
+          className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+        >
           Contact us
         </a>{" "}
         directly.

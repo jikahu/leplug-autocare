@@ -39,7 +39,10 @@ export default function AboutPage() {
         </p>
         <p>
           {BUSINESS_INFO.address}. Delivery is available across Nairobi Metro and beyond — see our{" "}
-          <a href="/faq#delivery" className="text-murram underline underline-offset-2">
+          <a
+            href="/faq#delivery"
+            className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+          >
             delivery FAQ
           </a>{" "}
           for details.
