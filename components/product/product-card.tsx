@@ -104,7 +104,9 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         {product.stock === "low_stock" && (
-          <span className="text-xs font-medium text-murram">Low stock</span>
+          <span className="text-xs font-medium text-murram">
+            {product.stockCount !== undefined ? `Only ${product.stockCount} left` : "Low stock"}
+          </span>
         )}
         {isOutOfStock && <span className="text-xs font-medium text-steel">Out of stock</span>}
 

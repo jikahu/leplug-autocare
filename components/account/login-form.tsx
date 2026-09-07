@@ -93,7 +93,7 @@ export function LoginForm() {
         )}
       </div>
 
-      <p className="text-xs text-tarmac/60">
+      <p className="text-xs text-tarmac/70">
         This is a demo login — no real password is checked. Try{" "}
         <span className="font-medium text-tarmac">jane@example.com</span> to see an existing
         account, or{" "}

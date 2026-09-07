@@ -63,7 +63,7 @@ export function CheckoutPaymentStep({
                 onChangeMethod(option.value);
                 setError(null);
               }}
-              className="mt-1 accent-murram"
+              className="mt-1 accent-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             />
             <span>
               <span className="block font-medium text-tarmac">{option.label}</span>

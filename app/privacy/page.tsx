@@ -94,12 +94,15 @@ export default function PrivacyPage() {
             Questions about this policy? Reach us at{" "}
             <a
               href={`mailto:${BUSINESS_INFO.email}`}
-              className="text-murram underline underline-offset-2"
+              className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               {BUSINESS_INFO.email}
             </a>{" "}
             or via our{" "}
-            <a href="/contact" className="text-murram underline underline-offset-2">
+            <a
+              href="/contact"
+              className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+            >
               Contact page
             </a>
             .

@@ -48,7 +48,10 @@ export default function TermsPage() {
           <h2 className="font-heading text-lg font-bold text-tarmac">4. Delivery</h2>
           <p className="mt-2">
             Delivery fees and timelines depend on your delivery zone — see our{" "}
-            <a href="/faq#delivery" className="text-murram underline underline-offset-2">
+            <a
+              href="/faq#delivery"
+              className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+            >
               delivery FAQ
             </a>{" "}
             for current rates. Delivery estimates are not guaranteed and may vary.
@@ -96,7 +99,7 @@ export default function TermsPage() {
             Questions about these terms? Reach us at{" "}
             <a
               href={`mailto:${BUSINESS_INFO.email}`}
-              className="text-murram underline underline-offset-2"
+              className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               {BUSINESS_INFO.email}
             </a>

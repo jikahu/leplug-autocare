@@ -100,7 +100,7 @@ export function AddressManager() {
                 {address.line1}
                 {address.line2 ? `, ${address.line2}` : ""}, {address.city}
               </p>
-              <p className="text-tarmac/60">
+              <p className="text-tarmac/70">
                 {address.zone === "nairobi_metro" ? "Nairobi Metro" : "Outside Nairobi"}
               </p>
             </div>
@@ -155,7 +155,7 @@ export function AddressManager() {
 
           <div className="space-y-1">
             <label htmlFor="address-line2" className="text-sm font-medium text-tarmac">
-              Apartment, suite, etc. <span className="text-tarmac/50">(optional)</span>
+              Apartment, suite, etc. <span className="text-tarmac/70">(optional)</span>
             </label>
             <input
               id="address-line2"
@@ -187,7 +187,7 @@ export function AddressManager() {
                 name="address-zone"
                 checked={addressForm.zone === "nairobi_metro"}
                 onChange={() => setAddressForm((prev) => ({ ...prev, zone: "nairobi_metro" }))}
-                className="accent-murram"
+                className="accent-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               />
               Nairobi Metro
             </label>
@@ -197,7 +197,7 @@ export function AddressManager() {
                 name="address-zone"
                 checked={addressForm.zone === "outside_nairobi"}
                 onChange={() => setAddressForm((prev) => ({ ...prev, zone: "outside_nairobi" }))}
-                className="accent-murram"
+                className="accent-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               />
               Outside Nairobi
             </label>

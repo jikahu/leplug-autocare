@@ -63,7 +63,11 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
 
       <div>
         {product.stock === "in_stock" && <p className="text-sm font-medium text-acacia">In stock</p>}
-        {product.stock === "low_stock" && <p className="text-sm font-medium text-murram">Low stock</p>}
+        {product.stock === "low_stock" && (
+          <p className="text-sm font-medium text-murram">
+            {product.stockCount !== undefined ? `Only ${product.stockCount} left` : "Low stock"}
+          </p>
+        )}
         {isOutOfStock && <p className="text-sm font-medium text-steel">Out of stock</p>}
       </div>
 

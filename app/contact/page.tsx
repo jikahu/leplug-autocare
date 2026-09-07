@@ -28,7 +28,7 @@ export default function ContactPage() {
                 <p className="text-sm font-medium text-tarmac">Call us</p>
                 <a
                   href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, "")}`}
-                  className="text-sm text-tarmac/70 hover:text-murram"
+                  className="rounded-sm text-sm text-tarmac/70 hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
                 >
                   {BUSINESS_INFO.phone}
                 </a>
@@ -40,7 +40,7 @@ export default function ContactPage() {
                 <p className="text-sm font-medium text-tarmac">WhatsApp</p>
                 <a
                   href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/[^\d]/g, "")}`}
-                  className="text-sm text-tarmac/70 hover:text-murram"
+                  className="rounded-sm text-sm text-tarmac/70 hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
                 >
                   {BUSINESS_INFO.whatsapp}
                 </a>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="flex aspect-video items-center justify-center rounded-lg border border-steel/40 bg-tarmac/5 px-4 text-center text-sm text-tarmac/50">
+          <div className="flex aspect-video items-center justify-center rounded-lg border border-steel/40 bg-tarmac/5 px-4 text-center text-sm text-tarmac/70">
             Map placeholder — {BUSINESS_INFO.address}
           </div>
         </div>

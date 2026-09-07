@@ -11,6 +11,7 @@ type ProductSeed = {
   makes?: string[];
   tags?: Product["tags"];
   stock?: Product["stock"];
+  stockCount?: number;
   rating?: number;
   reviewCount?: number;
   features: string[];
@@ -21,7 +22,7 @@ const SEEDS: Record<string, ProductSeed[]> = {
   exterior: [
     { name: "All-Weather Car Cover (Sedan)", subcategory: "car-covers", brand: "ShieldPro", price: 3200, features: ["UV-resistant polyester", "Elastic hem for a snug fit", "Machine washable"], description: "Full-body protection from sun, dust, and rain for sedans parked outdoors.", stock: "in_stock", rating: 4.5, reviewCount: 18 },
     { name: "LED Fog Light Kit", subcategory: "lighting", brand: "BrightBeam", price: 4500, compareAtPrice: 5500, makes: ["Toyota", "Subaru"], tags: ["Sale"], features: ["6000K white LED", "Plug-and-play harness", "IP67 waterproof"], description: "Bright, focused fog lighting for low-visibility driving conditions.", stock: "in_stock", rating: 4.7, reviewCount: 31 },
-    { name: "Sport Rear Spoiler", subcategory: "spoilers", brand: "AeroForm", price: 8900, makes: ["Nissan", "Mazda"], features: ["ABS plastic construction", "Paint-ready primer finish", "Includes mounting hardware"], description: "A subtle aerodynamic addition that sharpens the rear profile.", stock: "low_stock", rating: 4.2, reviewCount: 9 },
+    { name: "Sport Rear Spoiler", subcategory: "spoilers", brand: "AeroForm", price: 8900, makes: ["Nissan", "Mazda"], features: ["ABS plastic construction", "Paint-ready primer finish", "Includes mounting hardware"], description: "A subtle aerodynamic addition that sharpens the rear profile.", stock: "low_stock", stockCount: 2, rating: 4.2, reviewCount: 9 },
     { name: "Heavy-Duty Mud Flaps (Set of 4)", subcategory: "mud-flaps", brand: "TerraGuard", price: 1800, features: ["Flexible rubber compound", "No-drill mounting", "Fits most sedans and SUVs"], description: "Keeps mud and road spray off your paintwork on Nairobi's unpaved roads.", stock: "in_stock", rating: 4.4, reviewCount: 22 },
     { name: "Wind Deflector Set (Front Windows)", subcategory: "wind-breakers", brand: "ClearAir", price: 2600, features: ["Smoke-tint acrylic", "3M adhesive mount", "Reduces cabin wind noise"], description: "Crack your windows for airflow without the wind noise or rain.", stock: "in_stock", rating: 4.1, reviewCount: 14 },
     { name: "Frameless Wiper Blades (Pair)", subcategory: "wipers", brand: "ClearView", price: 1500, tags: ["Bestseller"], features: ["Aerodynamic frameless design", "All-season silicone edge", "Universal J-hook adapter"], description: "Streak-free wiping in Nairobi's rainy season.", stock: "in_stock", rating: 4.6, reviewCount: 47 },
@@ -34,7 +35,7 @@ const SEEDS: Record<string, ProductSeed[]> = {
     { name: "Backseat Organizer with Tablet Holder", subcategory: "organizers", brand: "TidyRide", price: 2200, tags: ["New"], features: ["Multiple storage pockets", "Adjustable tablet mount", "Waterproof lining"], description: "Keeps the back seat tidy on longer family trips.", stock: "in_stock", rating: 4.3, reviewCount: 7 },
     { name: "Suede Steering Wheel Cover", subcategory: "steering-covers", brand: "GripTech", price: 1600, features: ["Non-slip suede grip", "Breathable microfiber lining", "Fits 36-38cm wheels"], description: "A better grip and a premium feel on every drive.", stock: "in_stock", rating: 4.4, reviewCount: 25 },
     { name: "Car Fragrance Set (4 Scents)", subcategory: "car-fragrance", brand: "PureAir", price: 950, tags: ["Bestseller"], features: ["Long-lasting vent clips", "4 scent variety pack", "Adjustable intensity"], description: "Keep the cabin smelling fresh on every drive.", stock: "in_stock", rating: 4.5, reviewCount: 54 },
-    { name: "Memory Foam Lumbar Cushion", subcategory: "seat-covers", brand: "LuxeFit", price: 2400, features: ["Ergonomic lumbar support", "Breathable mesh cover", "Adjustable strap mount"], description: "Reduces back fatigue on long drives or daily traffic.", stock: "low_stock", rating: 4.2, reviewCount: 16 },
+    { name: "Memory Foam Lumbar Cushion", subcategory: "seat-covers", brand: "LuxeFit", price: 2400, features: ["Ergonomic lumbar support", "Breathable mesh cover", "Adjustable strap mount"], description: "Reduces back fatigue on long drives or daily traffic.", stock: "low_stock", stockCount: 4, rating: 4.2, reviewCount: 16 },
   ],
   "performance-service-parts": [
     { name: "Ceramic Brake Pads (Front Set)", subcategory: "brake-pads", brand: "StopSure", price: 5400, makes: ["Toyota", "Nissan"], tags: ["Bestseller"], features: ["Low-dust ceramic compound", "Reduced brake noise", "OEM fitment"], description: "Reliable stopping power with less brake dust on your rims.", stock: "in_stock", rating: 4.7, reviewCount: 41 },
@@ -49,7 +50,7 @@ const SEEDS: Record<string, ProductSeed[]> = {
     { name: "Carnauba Wax Polish (500ml)", subcategory: "polish", brand: "ShineWorks", price: 2400, features: ["Deep gloss carnauba blend", "UV protection layer", "Lasts up to 3 months"], description: "A show-quality shine with lasting weather protection.", stock: "in_stock", rating: 4.6, reviewCount: 34 },
     { name: "Tire Shine Gel (500ml)", subcategory: "tire-shine", brand: "ShineWorks", price: 950, features: ["Long-lasting matte-to-gloss finish", "No sling formula", "UV-resistant"], description: "A rich, non-greasy shine that resists flinging onto your paint.", stock: "in_stock", rating: 4.3, reviewCount: 19 },
     { name: "Complete Detailing Kit (8-Piece)", subcategory: "protection-kits", brand: "DetailPro", price: 6500, tags: ["New"], features: ["Shampoo, wax, microfiber towels, applicator pads", "All-in-one storage case", "Suitable for full exterior + interior detailing"], description: "Everything needed for a full weekend detailing session.", stock: "in_stock", rating: 4.5, reviewCount: 12 },
-    { name: "Ceramic Paint Sealant (250ml)", subcategory: "protection-kits", brand: "DetailPro", price: 4800, features: ["9H hardness ceramic coating", "Hydrophobic finish", "Up to 6 months protection"], description: "Long-term paint protection with an easy DIY application.", stock: "low_stock", rating: 4.4, reviewCount: 15 },
+    { name: "Ceramic Paint Sealant (250ml)", subcategory: "protection-kits", brand: "DetailPro", price: 4800, features: ["9H hardness ceramic coating", "Hydrophobic finish", "Up to 6 months protection"], description: "Long-term paint protection with an easy DIY application.", stock: "low_stock", stockCount: 3, rating: 4.4, reviewCount: 15 },
     { name: "Vent-Clip Air Freshener (Citrus)", subcategory: "air-fresheners", brand: "PureAir", price: 450, features: ["30-day scent release", "Adjustable fragrance intensity", "Discreet vent-clip design"], description: "A clean citrus scent that doesn't overpower the cabin.", stock: "in_stock", rating: 4.2, reviewCount: 21 },
     { name: "Interior Trim Cleaner (500ml)", subcategory: "cleaning-products", brand: "ShineWorks", price: 1100, features: ["Anti-static formula", "UV-fade protection for plastics", "Streak-free finish"], description: "Restores faded interior plastics without a greasy residue.", stock: "in_stock", rating: 4.3, reviewCount: 12 },
     { name: "Glass Cleaner (500ml)", subcategory: "cleaning-products", brand: "ShineWorks", price: 700, tags: ["Bestseller"], features: ["Ammonia-free formula", "Streak-free on tinted windows", "Anti-fog additive"], description: "A safe, streak-free clean for windshields and tinted glass.", stock: "in_stock", rating: 4.5, reviewCount: 28 },
@@ -69,7 +70,7 @@ const SEEDS: Record<string, ProductSeed[]> = {
     { name: "Reflective Warning Triangles (Set of 2)", subcategory: "reflectors", brand: "SafeRoad", price: 900, features: ["High-visibility reflective panels", "Foldable for compact storage", "Meets standard road safety specs"], description: "Essential roadside visibility for breakdowns at night.", stock: "in_stock", rating: 4.4, reviewCount: 18 },
     { name: "Adjustable Safety Seat Belt Extender", subcategory: "safety-belts", brand: "SafeRoad", price: 650, features: ["Universal buckle fit", "Reinforced webbing", "Easy snap-in install"], description: "A comfortable, secure fit for every passenger.", stock: "in_stock", rating: 4.0, reviewCount: 6 },
     { name: "Roadside Emergency Kit (22-Piece)", subcategory: "emergency-kits", brand: "SafeRoad", price: 3200, tags: ["New"], features: ["Jumper cables, tow rope, gloves, first aid basics", "Compact storage bag", "Reflective vest included"], description: "One kit covering the essentials for common roadside issues.", stock: "in_stock", rating: 4.5, reviewCount: 14 },
-    { name: "Portable Tire Inflator (12V)", subcategory: "emergency-kits", brand: "VoltCore", price: 4500, features: ["Digital pressure gauge", "12V cigarette lighter plug", "LED work light"], description: "Top up tire pressure anywhere, no compressor needed.", stock: "low_stock", rating: 4.3, reviewCount: 22 },
+    { name: "Portable Tire Inflator (12V)", subcategory: "emergency-kits", brand: "VoltCore", price: 4500, features: ["Digital pressure gauge", "12V cigarette lighter plug", "LED work light"], description: "Top up tire pressure anywhere, no compressor needed.", stock: "low_stock", stockCount: 2, rating: 4.3, reviewCount: 22 },
     { name: "Fire Extinguisher (1kg, Car-Mount)", subcategory: "emergency-kits", brand: "SafeRoad", price: 2100, features: ["ABC dry powder type", "Compact car-mount bracket", "Pressure gauge indicator"], description: "A compact, mountable extinguisher sized for car interiors.", stock: "in_stock", rating: 4.5, reviewCount: 11 },
   ],
 };
@@ -96,6 +97,7 @@ export const products: Product[] = Object.entries(SEEDS).flatMap(([category, see
       description: seed.description,
       keyFeatures: seed.features,
       stock: seed.stock ?? "in_stock",
+      stockCount: seed.stockCount,
       rating: seed.rating,
       reviewCount: seed.reviewCount,
       tags: seed.tags,
