@@ -187,7 +187,7 @@ export function AddressManager() {
                 name="address-zone"
                 checked={addressForm.zone === "nairobi_metro"}
                 onChange={() => setAddressForm((prev) => ({ ...prev, zone: "nairobi_metro" }))}
-                className="accent-murram focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-murram"
+                className="accent-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               />
               Nairobi Metro
             </label>
@@ -197,7 +197,7 @@ export function AddressManager() {
                 name="address-zone"
                 checked={addressForm.zone === "outside_nairobi"}
                 onChange={() => setAddressForm((prev) => ({ ...prev, zone: "outside_nairobi" }))}
-                className="accent-murram focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-murram"
+                className="accent-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               />
               Outside Nairobi
             </label>
