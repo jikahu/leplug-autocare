@@ -61,7 +61,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-sm text-sm font-medium hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              className="rounded-sm text-sm font-medium underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               {link.label}
             </Link>
