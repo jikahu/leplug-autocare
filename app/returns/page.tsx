@@ -73,7 +73,10 @@ export default function ReturnsPage() {
               {BUSINESS_INFO.email}
             </a>{" "}
             or use our{" "}
-            <a href="/contact" className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram">
+            <a
+              href="/contact"
+              className="rounded-sm text-murram underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+            >
               Contact page
             </a>
             .
