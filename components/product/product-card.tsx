@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Heart, Star, StarHalf } from "lucide-react";
 import type { Product } from "@/lib/types";
@@ -21,6 +22,7 @@ export function ProductCard({ product }: { product: Product }) {
   const toggleWishlist = useWishlistStore((state) => state.toggle);
   const stars = product.rating ? getStarCounts(product.rating) : null;
   const isOutOfStock = product.stock === "out_of_stock";
+  const photo = product.images[0]?.startsWith("http") ? product.images[0] : undefined;
 
   function handleAddToCart() {
     addItem(product.id);
@@ -60,9 +62,19 @@ export function ProductCard({ product }: { product: Product }) {
         <Link
           href={`/product/${product.slug}`}
           aria-label={`View ${product.name}`}
-          className="flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram focus-visible:ring-inset"
+          className="relative flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram focus-visible:ring-inset"
         >
-          <CategoryPlaceholderIcon category={product.category} className="size-16 text-tarmac/30" />
+          {photo ? (
+            <Image
+              src={photo}
+              alt={product.name}
+              fill
+              sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+              className="object-cover"
+            />
+          ) : (
+            <CategoryPlaceholderIcon category={product.category} className="size-16 text-tarmac/30" />
+          )}
         </Link>
       </div>
 

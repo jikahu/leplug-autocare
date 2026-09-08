@@ -6,7 +6,7 @@ export const categories: Category[] = [
     name: "Exterior",
     slug: "exterior",
     description: "Car covers, lighting, spoilers, mud flaps, wind breakers, and wipers.",
-    heroImage: "/images/categories/exterior.jpg",
+    heroImage: "https://images.pexels.com/photos/5182242/pexels-photo-5182242.jpeg",
     subcategories: [
       { id: "car-covers", name: "Car Covers", slug: "car-covers" },
       { id: "lighting", name: "Lighting", slug: "lighting" },
@@ -21,7 +21,7 @@ export const categories: Category[] = [
     name: "Interior",
     slug: "interior",
     description: "Seat covers, floor mats, dashboard covers, organizers, steering covers, and car fragrance.",
-    heroImage: "/images/categories/interior.jpg",
+    heroImage: "https://images.pexels.com/photos/5158160/pexels-photo-5158160.jpeg",
     subcategories: [
       { id: "seat-covers", name: "Seat Covers", slug: "seat-covers" },
       { id: "floor-mats", name: "Floor Mats", slug: "floor-mats" },
@@ -36,7 +36,7 @@ export const categories: Category[] = [
     name: "Performance & Service Parts",
     slug: "performance-service-parts",
     description: "Brake pads, oil filters, spark plugs, batteries, and bulbs.",
-    heroImage: "/images/categories/performance-service-parts.jpg",
+    heroImage: "https://images.pexels.com/photos/13065692/pexels-photo-13065692.jpeg",
     subcategories: [
       { id: "brake-pads", name: "Brake Pads", slug: "brake-pads" },
       { id: "oil-filters", name: "Oil Filters", slug: "oil-filters" },
@@ -50,7 +50,7 @@ export const categories: Category[] = [
     name: "Car Care & Detailing",
     slug: "car-care-detailing",
     description: "Cleaning products, polish, tire shine, protection kits, and air fresheners.",
-    heroImage: "/images/categories/car-care-detailing.jpg",
+    heroImage: "https://images.pexels.com/photos/6026083/pexels-photo-6026083.jpeg",
     subcategories: [
       { id: "cleaning-products", name: "Cleaning Products", slug: "cleaning-products" },
       { id: "polish", name: "Polish", slug: "polish" },
@@ -64,7 +64,7 @@ export const categories: Category[] = [
     name: "Electronics & Security",
     slug: "electronics-security",
     description: "Dash cams, alarms, parking sensors, and car stereo/speakers.",
-    heroImage: "/images/categories/electronics-security.jpg",
+    heroImage: "https://images.pexels.com/photos/18649172/pexels-photo-18649172.jpeg",
     subcategories: [
       { id: "dash-cams", name: "Dash Cams", slug: "dash-cams" },
       { id: "alarms", name: "Alarms", slug: "alarms" },
@@ -77,7 +77,7 @@ export const categories: Category[] = [
     name: "Safety",
     slug: "safety",
     description: "Jumper cables, reflectors, safety belts, and emergency kits.",
-    heroImage: "/images/categories/safety.jpg",
+    heroImage: "https://images.pexels.com/photos/5403208/pexels-photo-5403208.jpeg",
     subcategories: [
       { id: "jumper-cables", name: "Jumper Cables", slug: "jumper-cables" },
       { id: "reflectors", name: "Reflectors", slug: "reflectors" },
