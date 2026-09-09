@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Search, ShoppingCart, User } from "lucide-react";
+import { Search, ShoppingCart } from "lucide-react";
 import { useCartItemCount } from "@/lib/store/cart";
 import { useCartDrawerStore } from "@/lib/store/cart-drawer";
 import { useAuthStore } from "@/lib/store/auth";
@@ -11,6 +11,7 @@ import { MobileNav } from "./mobile-nav";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "Shop", href: "/shop" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -66,6 +67,32 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          {currentUser ? (
+            <Link
+              href="/account/orders"
+              className="rounded-sm text-sm font-medium underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+            >
+              My Account
+            </Link>
+          ) : (
+            <span className="flex items-center gap-2">
+              <Link
+                href="/account/register"
+                className="rounded-sm text-sm font-medium underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              >
+                Register
+              </Link>
+              <span className="text-steel" aria-hidden="true">
+                |
+              </span>
+              <Link
+                href="/account/login"
+                className="rounded-sm text-sm font-medium underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              >
+                Login
+              </Link>
+            </span>
+          )}
         </nav>
 
         <form
@@ -94,13 +121,6 @@ export function Header() {
           >
             <Search className="size-5" />
           </button>
-          <Link
-            href={currentUser ? "/account/orders" : "/account/login"}
-            className="hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram md:block"
-            aria-label={currentUser ? `Account, logged in as ${currentUser.name}` : "Account"}
-          >
-            <User className="size-5" />
-          </Link>
           <button
             type="button"
             onClick={openCartDrawer}
