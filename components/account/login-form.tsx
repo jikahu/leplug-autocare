@@ -96,15 +96,26 @@ export function LoginForm() {
       <p className="text-xs text-tarmac/70">
         This is a demo login — no real password is checked. Try{" "}
         <span className="font-medium text-tarmac">jane@example.com</span> to see an existing
-        account, or{" "}
-        <Link href="/account/register" className="underline">
-          create a new one
-        </Link>
-        .
+        account.
       </p>
 
       <Button type="submit" className="w-full">
         Log In
+      </Button>
+
+      <div className="flex items-center gap-3 pt-2">
+        <span className="h-px flex-1 bg-steel/30" aria-hidden="true" />
+        <span className="text-xs font-medium text-tarmac/70">New to LePlug?</span>
+        <span className="h-px flex-1 bg-steel/30" aria-hidden="true" />
+      </div>
+
+      <Button
+        render={<Link href="/account/register" />}
+        nativeButton={false}
+        variant="outline"
+        className="w-full"
+      >
+        Create an Account
       </Button>
     </form>
   );
