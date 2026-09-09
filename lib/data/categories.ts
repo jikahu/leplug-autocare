@@ -77,7 +77,7 @@ export const categories: Category[] = [
     name: "Safety",
     slug: "safety",
     description: "Jumper cables, reflectors, safety belts, and emergency kits.",
-    heroImage: "https://images.pexels.com/photos/5403208/pexels-photo-5403208.jpeg",
+    heroImage: "https://images.pexels.com/photos/5835359/pexels-photo-5835359.jpeg",
     subcategories: [
       { id: "jumper-cables", name: "Jumper Cables", slug: "jumper-cables" },
       { id: "reflectors", name: "Reflectors", slug: "reflectors" },
