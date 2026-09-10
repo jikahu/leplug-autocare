@@ -4,12 +4,12 @@ import { CarFront } from "lucide-react";
 import { ALL_VEHICLE_MAKES } from "@/lib/data/products";
 
 const VEHICLE_MAKE_LOGOS: Record<string, string | undefined> = {
-  Toyota: undefined,
-  Subaru: undefined,
-  Nissan: undefined,
-  Mazda: undefined,
-  Mitsubishi: undefined,
-  Ford: undefined,
+  Toyota: "/logos/makes/toyota.svg",
+  Subaru: "/logos/makes/subaru.svg",
+  Nissan: "/logos/makes/nissan.svg",
+  Mazda: "/logos/makes/mazda.svg",
+  Mitsubishi: "/logos/makes/mitsubishi.svg",
+  Ford: "/logos/makes/ford.svg",
 };
 
 function MakeBadge({ make, logoSrc }: { make: string; logoSrc?: string }) {
@@ -19,13 +19,16 @@ function MakeBadge({ make, logoSrc }: { make: string; logoSrc?: string }) {
       className="flex flex-col items-center gap-2 rounded-lg border border-steel/60 bg-savanna/5 p-4 text-center transition-colors hover:border-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
     >
       {logoSrc ? (
-        <Image
-          src={logoSrc}
-          alt={`${make} logo`}
-          width={48}
-          height={48}
-          className="size-12 object-contain"
-        />
+        <span className="flex size-16 items-center justify-center rounded-md bg-savanna p-2.5">
+          <Image
+            src={logoSrc}
+            alt={`${make} logo`}
+            width={64}
+            height={64}
+            unoptimized
+            className="size-full object-contain"
+          />
+        </span>
       ) : (
         <CarFront className="size-12 text-savanna/70" aria-hidden="true" />
       )}
