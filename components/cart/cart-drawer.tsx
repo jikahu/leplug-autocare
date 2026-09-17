@@ -32,7 +32,10 @@ export function CartDrawer() {
         if (!open) close();
       }}
     >
-      <SheetContent side="right" className="border-steel bg-savanna text-tarmac">
+      <SheetContent
+        side="right"
+        className="border-steel bg-savanna text-tarmac data-[side=right]:w-11/12 data-[side=right]:sm:max-w-sm"
+      >
         <SheetHeader>
           <SheetTitle className="text-tarmac">Your Cart</SheetTitle>
         </SheetHeader>

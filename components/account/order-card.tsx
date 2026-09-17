@@ -23,7 +23,7 @@ export function OrderCard({ order }: { order: Order }) {
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
           <p className="font-stencil text-sm text-tarmac">{order.id}</p>
-          <p className="text-xs text-tarmac/60">Placed {placedDate}</p>
+          <p className="text-xs text-tarmac/70">Placed {placedDate}</p>
         </div>
         <span className="rounded-full bg-acacia/10 px-3 py-1 text-xs font-medium text-acacia">
           {STATUS_LABELS[order.status]}

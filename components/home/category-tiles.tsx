@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { categories } from "@/lib/data/categories";
-import { CategoryPlaceholderIcon } from "@/lib/utils/category-icons";
 
 export function CategoryTiles() {
   return (
@@ -15,15 +15,24 @@ export function CategoryTiles() {
               <Link
                 key={category.id}
                 href={`/shop/${category.slug}`}
-                className="group flex flex-col gap-3 rounded-lg border border-steel/40 bg-tarmac/5 p-5 transition-colors hover:border-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                className="group flex flex-col overflow-hidden rounded-lg border border-steel/40 transition-colors hover:border-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               >
-                <span className="flex size-12 items-center justify-center rounded-full bg-linear-to-br from-chrome-start to-chrome-end">
-                  <CategoryPlaceholderIcon category={category.id} className="size-6 text-tarmac/70" />
+                <div className="relative aspect-4/3 w-full overflow-hidden bg-tarmac">
+                  <Image
+                    src={category.heroImage}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 33vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-tarmac/85 via-tarmac/10 to-transparent" />
+                  <span className="absolute bottom-3 left-3 font-heading text-lg font-bold text-savanna">
+                    {category.name}
+                  </span>
+                </div>
+                <span className="bg-tarmac/5 px-4 py-3 text-sm text-tarmac/70">
+                  {category.description}
                 </span>
-                <span className="font-heading text-lg font-bold text-tarmac group-hover:text-murram">
-                  {category.name}
-                </span>
-                <span className="text-sm text-tarmac/70">{category.description}</span>
               </Link>
             );
           })}

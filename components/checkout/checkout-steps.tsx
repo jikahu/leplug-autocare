@@ -24,7 +24,7 @@ export function CheckoutSteps({ currentStep }: { currentStep: number }) {
                   ? "border-murram bg-murram text-savanna"
                   : isComplete
                     ? "border-acacia bg-acacia text-savanna"
-                    : "border-steel/40 text-tarmac/50"
+                    : "border-steel/40 text-tarmac/70"
               )}
             >
               {stepNumber}
@@ -32,7 +32,7 @@ export function CheckoutSteps({ currentStep }: { currentStep: number }) {
             <span
               className={cn(
                 "hidden text-sm sm:inline",
-                isActive ? "font-medium text-tarmac" : "text-tarmac/50"
+                isActive ? "font-medium text-tarmac" : "text-tarmac/70"
               )}
             >
               {label}

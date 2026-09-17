@@ -115,7 +115,7 @@ export function CheckoutAddressStep({
 
       <div className="space-y-1">
         <label htmlFor="checkout-line2" className="text-sm font-medium text-tarmac">
-          Apartment, suite, etc. <span className="text-tarmac/50">(optional)</span>
+          Apartment, suite, etc. <span className="text-tarmac/70">(optional)</span>
         </label>
         <input
           id="checkout-line2"

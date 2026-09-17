@@ -5,9 +5,9 @@ import Image from "next/image";
 import { CategoryPlaceholderIcon } from "@/lib/utils/category-icons";
 
 /**
- * Falls back to the category placeholder icon on load failure — most catalog
- * products don't have real photography yet, only a guessed `/images/products/*`
- * path, so a 404 here is expected rather than exceptional.
+ * Falls back to the category placeholder icon on load failure — a handful of
+ * products still only have a guessed `/images/products/*` path with no file
+ * behind it, so a 404 there is expected rather than exceptional.
  */
 export function ProductImage({
   src,
@@ -16,6 +16,7 @@ export function ProductImage({
   sizes,
   className,
   iconClassName,
+  priority,
 }: {
   src: string;
   alt: string;
@@ -23,6 +24,7 @@ export function ProductImage({
   sizes?: string;
   className?: string;
   iconClassName?: string;
+  priority?: boolean;
 }) {
   const [errored, setErrored] = useState(false);
 
@@ -38,6 +40,7 @@ export function ProductImage({
       fill
       sizes={sizes}
       className={className}
+      priority={priority}
       onError={() => setErrored(true)}
     />
   );

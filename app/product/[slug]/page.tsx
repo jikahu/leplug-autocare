@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     title: `${product.name} — LePlug Autocare`,
     description: product.description,
     openGraph: {
+      type: "website",
+      locale: "en_KE",
+      siteName: "LePlug Autocare",
       title: product.name,
       description: product.description,
       images: product.images.length > 0 ? [{ url: product.images[0] }] : undefined,

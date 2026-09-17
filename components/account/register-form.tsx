@@ -153,7 +153,7 @@ export function RegisterForm() {
         )}
       </div>
 
-      <p className="text-xs text-tarmac/60">This is a demo account — no real password is stored.</p>
+      <p className="text-xs text-tarmac/70">This is a demo account — no real password is stored.</p>
 
       <Button type="submit" className="w-full">
         Create Account

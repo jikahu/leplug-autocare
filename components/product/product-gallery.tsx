@@ -28,9 +28,10 @@ export function ProductGallery({
           src={selectedImage}
           alt={productName}
           category={category}
-          sizes="(min-width: 1024px) 50vw, 100vw"
+          sizes="(min-width: 1024px) 40vw, 90vw"
           className="object-cover"
           iconClassName="size-32 text-tarmac/30"
+          priority
         />
       </div>
       {images.length > 1 && (

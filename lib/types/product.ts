@@ -15,6 +15,7 @@ export type Product = {
   description: string;
   keyFeatures: string[];
   stock: StockStatus;
+  stockCount?: number;
   rating?: number;
   reviewCount?: number;
   tags?: string[];

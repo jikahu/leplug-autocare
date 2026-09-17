@@ -34,7 +34,7 @@ export function CartSummary({ subtotal }: { subtotal: number }) {
           </Button>
         </div>
         {promoMessage && (
-          <p role="status" className="text-xs text-tarmac/60">
+          <p role="status" className="text-xs text-tarmac/70">
             {promoMessage}
           </p>
         )}

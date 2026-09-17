@@ -12,9 +12,9 @@ import {
 export function CategoryBar() {
   return (
     <div className="border-b border-steel bg-savanna">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <NavigationMenu>
-          <NavigationMenuList>
+      <div className="mx-auto max-w-7xl overflow-x-auto px-4 md:px-8">
+        <NavigationMenu className="max-w-none flex-none justify-start">
+          <NavigationMenuList className="flex-none justify-start">
             {categories.map((category) => (
               <NavigationMenuItem key={category.id}>
                 <NavigationMenuTrigger className="text-sm font-medium">

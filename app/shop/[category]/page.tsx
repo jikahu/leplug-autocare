@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CategoryBar } from "@/components/layout/category-bar";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
@@ -59,6 +60,17 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   return (
     <main>
       <CategoryBar />
+      <div className="relative h-40 w-full overflow-hidden bg-tarmac sm:h-56">
+        <Image
+          src={category.heroImage}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-tarmac/90 via-tarmac/30 to-transparent" />
+      </div>
       <div className="mx-auto max-w-7xl px-4 py-8 md:px-8">
         <Breadcrumbs items={[{ label: "Shop", href: "/shop" }, { label: category.name }]} />
         <h1 className="mt-2 font-heading text-3xl font-black text-tarmac">{category.name}</h1>

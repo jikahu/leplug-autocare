@@ -14,10 +14,10 @@ export function CartTotals({ subtotal }: { subtotal: number }) {
       <div aria-live="polite" aria-atomic="true">
         {remaining > 0 ? (
           <>
-            <p className="text-xs text-tarmac/60">
+            <p className="text-xs text-tarmac/70">
               Add {formatCurrency(remaining)} more for free delivery.
             </p>
-            <p className="text-xs text-tarmac/60">Delivery calculated at checkout.</p>
+            <p className="text-xs text-tarmac/70">Delivery calculated at checkout.</p>
           </>
         ) : (
           <p className="text-xs font-medium text-acacia">You&apos;ve unlocked free delivery.</p>

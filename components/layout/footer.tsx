@@ -31,7 +31,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="rounded-sm text-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                  className="rounded-sm text-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
                 >
                   {link.label}
                 </Link>
@@ -49,7 +49,7 @@ export function Footer() {
               <li key={category.id}>
                 <Link
                   href={`/shop/${category.slug}`}
-                  className="rounded-sm text-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                  className="rounded-sm text-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
                 >
                   {category.name}
                 </Link>
@@ -67,7 +67,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="rounded-sm text-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                  className="rounded-sm text-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
                 >
                   {link.label}
                 </Link>
@@ -84,7 +84,7 @@ export function Footer() {
             <li>
               <Link
                 href="/contact"
-                className="rounded-sm text-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                className="rounded-sm text-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
               >
                 Contact Us
               </Link>
@@ -93,7 +93,7 @@ export function Footer() {
               <li key={label}>
                 <a
                   href="#"
-                  className="rounded-sm text-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+                  className="rounded-sm text-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
                 >
                   {label}
                 </a>
@@ -109,19 +109,19 @@ export function Footer() {
           <div className="flex gap-4">
             <Link
               href="/privacy"
-              className="rounded-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              className="rounded-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               Privacy
             </Link>
             <Link
               href="/terms"
-              className="rounded-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              className="rounded-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               Terms
             </Link>
             <Link
               href="/returns"
-              className="rounded-sm hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              className="rounded-sm underline-offset-4 hover:underline hover:decoration-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
             >
               Returns
             </Link>

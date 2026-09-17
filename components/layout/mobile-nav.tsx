@@ -50,13 +50,31 @@ export function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
               {link.label}
             </Link>
           ))}
-          <Link
-            href={currentUser ? "/account/orders" : "/account/login"}
-            className="flex items-center gap-2 rounded-md px-3 py-3 text-lg font-medium hover:bg-savanna/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
-          >
-            <User className="size-5" aria-hidden="true" />
-            {currentUser ? "Account" : "Log In"}
-          </Link>
+          {currentUser ? (
+            <Link
+              href="/account/orders"
+              className="flex items-center gap-2 rounded-md px-3 py-3 text-lg font-medium hover:bg-savanna/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+            >
+              <User className="size-5" aria-hidden="true" />
+              My Account
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/account/register"
+                className="flex items-center gap-2 rounded-md px-3 py-3 text-lg font-medium hover:bg-savanna/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              >
+                <User className="size-5" aria-hidden="true" />
+                Register
+              </Link>
+              <Link
+                href="/account/login"
+                className="flex items-center gap-2 rounded-md px-3 py-3 text-lg font-medium hover:bg-savanna/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+              >
+                Login
+              </Link>
+            </>
+          )}
         </nav>
       </SheetContent>
     </Sheet>
