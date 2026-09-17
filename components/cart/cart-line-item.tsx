@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Minus, Plus, X } from "lucide-react";
 import { useCartStore } from "@/lib/store/cart";
 import { formatCurrency } from "@/lib/utils/format-currency";
-import { CategoryPlaceholderIcon } from "@/lib/utils/category-icons";
+import { ProductImage } from "@/components/product/product-image";
 import type { CartLine } from "@/lib/utils/cart-lines";
 
 export function CartLineItem({ line }: { line: CartLine }) {
@@ -15,9 +15,16 @@ export function CartLineItem({ line }: { line: CartLine }) {
     <div className="flex gap-4 border-b border-steel/40 py-4 last:border-b-0">
       <Link
         href={`/product/${line.product.slug}`}
-        className="flex size-20 shrink-0 items-center justify-center rounded-lg border border-steel bg-linear-to-br from-chrome-start to-chrome-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+        className="relative flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-steel bg-linear-to-br from-chrome-start to-chrome-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
       >
-        <CategoryPlaceholderIcon category={line.product.category} className="size-8 text-tarmac/30" />
+        <ProductImage
+          src={line.product.images[0]}
+          alt={line.product.name}
+          category={line.product.category}
+          sizes="80px"
+          className="object-cover"
+          iconClassName="size-8 text-tarmac/30"
+        />
       </Link>
 
       <div className="flex flex-1 flex-col gap-1">

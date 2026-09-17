@@ -11,7 +11,7 @@ import { useCartDrawerStore } from "@/lib/store/cart-drawer";
 import { useWishlistStore } from "@/lib/store/wishlist";
 import { formatCurrency } from "@/lib/utils/format-currency";
 import { getStarCounts } from "@/lib/utils/star-rating";
-import { CategoryPlaceholderIcon } from "@/lib/utils/category-icons";
+import { ProductImage } from "@/components/product/product-image";
 
 export function ProductCard({ product }: { product: Product }) {
   const [justAdded, setJustAdded] = useState(false);
@@ -60,9 +60,16 @@ export function ProductCard({ product }: { product: Product }) {
         <Link
           href={`/product/${product.slug}`}
           aria-label={`View ${product.name}`}
-          className="flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram focus-visible:ring-inset"
+          className="relative flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram focus-visible:ring-inset"
         >
-          <CategoryPlaceholderIcon category={product.category} className="size-16 text-tarmac/30" />
+          <ProductImage
+            src={product.images[0]}
+            alt={product.name}
+            category={product.category}
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            className="object-cover"
+            iconClassName="size-16 text-tarmac/30"
+          />
         </Link>
       </div>
 

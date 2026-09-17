@@ -1,6 +1,6 @@
 import type { Product } from "@/lib/types";
 
-const VEHICLE_MAKES = ["Toyota", "Subaru", "Nissan", "Mazda", "Mitsubishi", "Ford"];
+const VEHICLE_MAKES = ["Toyota", "Subaru", "Nissan", "Mazda", "Mitsubishi", "Ford", "Volkswagen"];
 
 type ProductSeed = {
   name: string;
@@ -34,7 +34,12 @@ const SEEDS: Record<string, ProductSeed[]> = {
     { name: "Backseat Organizer with Tablet Holder", subcategory: "organizers", brand: "TidyRide", price: 2200, tags: ["New"], features: ["Multiple storage pockets", "Adjustable tablet mount", "Waterproof lining"], description: "Keeps the back seat tidy on longer family trips.", stock: "in_stock", rating: 4.3, reviewCount: 7 },
     { name: "Suede Steering Wheel Cover", subcategory: "steering-covers", brand: "GripTech", price: 1600, features: ["Non-slip suede grip", "Breathable microfiber lining", "Fits 36-38cm wheels"], description: "A better grip and a premium feel on every drive.", stock: "in_stock", rating: 4.4, reviewCount: 25 },
     { name: "Car Fragrance Set (4 Scents)", subcategory: "car-fragrance", brand: "PureAir", price: 950, tags: ["Bestseller"], features: ["Long-lasting vent clips", "4 scent variety pack", "Adjustable intensity"], description: "Keep the cabin smelling fresh on every drive.", stock: "in_stock", rating: 4.5, reviewCount: 54 },
+    { name: "Peng Yuan Car Air Freshener – Berry Wood", subcategory: "car-fragrance", brand: "Peng Yuan", price: 500, features: ["Neutralizes AC, smoke, pet, and sweat odors", "Natural clarity berry wood scent", "Compact vent-mount design"], description: "A natural berry wood scent that clears out AC, smoke, and pet odors.", stock: "in_stock", rating: 4.3, reviewCount: 5 },
+    { name: "Peng Yuan Car Air Freshener – Lemon", subcategory: "car-fragrance", brand: "Peng Yuan", price: 500, features: ["Neutralizes AC, smoke, pet, and sweat odors", "Natural clarity lemon scent", "Compact vent-mount design"], description: "A crisp lemon scent that clears out AC, smoke, and pet odors.", stock: "in_stock", rating: 4.3, reviewCount: 5 },
     { name: "Memory Foam Lumbar Cushion", subcategory: "seat-covers", brand: "LuxeFit", price: 2400, features: ["Ergonomic lumbar support", "Breathable mesh cover", "Adjustable strap mount"], description: "Reduces back fatigue on long drives or daily traffic.", stock: "low_stock", rating: 4.2, reviewCount: 16 },
+    { name: "Subaru Sport Boot Organizer", subcategory: "organizers", brand: "TidyRide", price: 4500, makes: ["Subaru"], tags: ["New"], features: ["Embroidered Subaru Sport branding", "Rigid collapsible frame", "Side pocket for tools and cables"], description: "A structured boot organizer with Subaru Sport branding to keep cargo space tidy.", stock: "in_stock", rating: 4.5, reviewCount: 4 },
+    { name: "Volkswagen Boot Organizer", subcategory: "organizers", brand: "TidyRide", price: 4500, makes: ["Volkswagen"], tags: ["New"], features: ["Embroidered Volkswagen branding", "Rigid collapsible frame", "Side pocket for tools and cables"], description: "A structured boot organizer with Volkswagen branding to keep cargo space tidy.", stock: "in_stock", rating: 4.5, reviewCount: 4 },
+    { name: "Toyota TRD Boot Organizer", subcategory: "organizers", brand: "TidyRide", price: 4500, makes: ["Toyota"], tags: ["New"], features: ["Embroidered Toyota TRD branding", "Rigid collapsible frame", "Side pocket for tools and cables"], description: "A structured boot organizer with Toyota TRD branding to keep cargo space tidy.", stock: "in_stock", rating: 4.5, reviewCount: 4 },
   ],
   "performance-service-parts": [
     { name: "Ceramic Brake Pads (Front Set)", subcategory: "brake-pads", brand: "StopSure", price: 5400, makes: ["Toyota", "Nissan"], tags: ["Bestseller"], features: ["Low-dust ceramic compound", "Reduced brake noise", "OEM fitment"], description: "Reliable stopping power with less brake dust on your rims.", stock: "in_stock", rating: 4.7, reviewCount: 41 },
