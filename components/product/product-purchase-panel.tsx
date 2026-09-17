@@ -8,7 +8,7 @@ import { formatCurrency } from "@/lib/utils/format-currency";
 import { getStarCounts } from "@/lib/utils/star-rating";
 import { useCartStore } from "@/lib/store/cart";
 import { useCartDrawerStore } from "@/lib/store/cart-drawer";
-import { useWishlistStore } from "@/lib/store/wishlist";
+import { useWishlistStore, useWishlistHasHydrated } from "@/lib/store/wishlist";
 import { cn } from "@/lib/utils";
 
 export function ProductPurchasePanel({ product }: { product: Product }) {
@@ -17,7 +17,9 @@ export function ProductPurchasePanel({ product }: { product: Product }) {
   const [notifyRequested, setNotifyRequested] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
   const openCartDrawer = useCartDrawerStore((state) => state.open);
-  const isWishlisted = useWishlistStore((state) => state.isWishlisted(product.id));
+  const hasHydrated = useWishlistHasHydrated();
+  const wishlisted = useWishlistStore((state) => state.isWishlisted(product.id));
+  const isWishlisted = hasHydrated && wishlisted;
   const toggleWishlist = useWishlistStore((state) => state.toggle);
 
   const isOutOfStock = product.stock === "out_of_stock";
