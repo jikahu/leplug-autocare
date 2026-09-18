@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/lib/store/auth";
@@ -39,11 +38,9 @@ export function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
         <SheetHeader>
           <SheetTitle
             render={
-              <Image
-                src="/logos/leplug-wordmark.png"
+              <img
+                src="/logos/leplug-wordmark.svg"
                 alt="LePlug Autocare"
-                width={800}
-                height={129}
                 className="h-8 w-auto"
               />
             }
