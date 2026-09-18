@@ -29,6 +29,7 @@ export const categories: Category[] = [
       { id: "organizers", name: "Organizers", slug: "organizers" },
       { id: "steering-covers", name: "Steering Covers", slug: "steering-covers" },
       { id: "car-fragrance", name: "Car Fragrance", slug: "car-fragrance" },
+      { id: "other", name: "Other", slug: "other" },
     ],
   },
   {
