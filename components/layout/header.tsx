@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Search, ShoppingCart } from "lucide-react";
@@ -52,9 +53,18 @@ export function Header() {
       >
         <Link
           href="/"
-          className="shrink-0 rounded-sm font-heading text-xl font-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+          className="shrink-0 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
         >
-          LE PLUG
+          <Image
+            src="/logos/leplug-wordmark.png"
+            alt="LePlug Autocare"
+            width={800}
+            height={129}
+            priority
+            className={`w-auto transition-[height] duration-200 ${
+              isScrolled ? "h-6" : "h-8"
+            }`}
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
