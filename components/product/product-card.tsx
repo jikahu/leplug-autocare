@@ -83,7 +83,7 @@ export function ProductCard({ product }: { product: Product }) {
         )}
         <Link
           href={`/product/${product.slug}`}
-          className="line-clamp-2 rounded-sm text-sm font-medium text-tarmac hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
+          className="line-clamp-2 min-h-10 rounded-sm text-sm font-medium text-tarmac hover:text-murram focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-murram"
         >
           {product.name}
         </Link>
